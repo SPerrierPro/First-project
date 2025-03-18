@@ -1,1 +1,28 @@
-/* A définir */
+:root {
+    --main-color: #5D44AD;
+    --secondary-color: #3C2A74;
+    --button-color: #C8336E;
+    --body-color: #F0F0F0;
+    --main-font-color: #fff;
+    --purple-font-color: #5D44AD;
+    --title-font: ;
+    --text-font: ;
+}
+
+header {
+    background-color: var(--secondary-color);
+    color: var(--main-font-color);
+}
+
+nav {
+    background-color: var(--main-color);
+}
+
+body {
+    background-color: var(--body-color);
+}
+
+footer {
+    background-color: var(--secondary-color);
+    color: var(--main-font-color);
+}
