@@ -18,10 +18,67 @@
         </nav>
     </header>
 
-    <body>
+    <main>
 
-    </body>
+    </main>
     <footer>
+        <!-- Footer is divided in 2 parts => mainFooter and secFooter to easily manage the css and responsive elements -->
+        <div Class="mainFooter">
+
+            <!-- div Class loagoAndText contains the logo and the descritpion text => need to keep this elements in the same
+        "box". -->
+            <div class="logoAndText">
+
+                <!-- div Class logo => since we only have the wiz hat as logo, this box links the .png img and the text
+            (it's better to create a .png logo version with title included). -->
+                <div class="logo">
+                    <img src="images/quizz.png" alt="Logo de Whiz-Quiz">
+                    <h2>Quiz-Whiz</h2>
+                </div>
+                <p>Découvrez notre site de quiz intéractifs !
+                    Testez vos connaissances, amusez-vous et défiez vos amis avec des milliers de questions passionantes
+                    !
+                </p>
+            </div>
+            <ul class="socialNetworks">
+                <li><a href="#Facebook">
+                        <img src="images/facebook.png" alt="Facebook">
+                    </a>
+                </li>
+                <li><a href="#Instagram">
+                        <img src="images/instagram.png" alt="Instagram">
+                    </a>
+                </li>
+            </ul>
+            <section class="games">
+                <h2>Quiz et Jeux</h2>
+                <ul>
+                    <li><a href="#tousLesQuiz">Tous les quiz</a></li>
+                    <li><a href="#nouveautes">Nouveautés</a></li>
+                    <li><a href="#customQuiz">Quiz personalisés</a></li>
+                </ul>
+            </section>
+            <section Class="contact">
+                <h2>Nous Contacter</h2>
+                <ul>
+                    <li><a href="#about">A propos</a></li>
+                    <li><a href="#faq">F.A.Q</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#Carreer">Carrière</a></li>
+                </ul>
+            </section>
+
+        </div>
+
+        <!-- Div Class secFooter contains the cgv elements of the footer only diplayed in desktop version-->
+        <div class="secFooter">
+            <ul>
+                <li><a href="#legalNotice">Mantions Légales</a></li>
+                <li><a href="#confidentialityPolicy">Confidentialité"></a></li>
+                <li><a href="#cgv">C.G.V</a></li>
+            </ul>
+            <span>Quiz-whiz Tous droits réservés &copy; 2025</span>
+        </div>
 
     </footer>
     <script src="index.js"></script>
