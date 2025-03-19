@@ -12,12 +12,12 @@
 </head>
 
 <body>
-        <!-- BARRE DE NAVIGATION + MENU BURGER -->
-        <nav>
+    <!-- BARRE DE NAVIGATION + MENU BURGER -->
+    <nav>
 
-            <!-- MENU BURGER -->
+        <!-- MENU BURGER -->
 
-            <section class="conteneur">
+        <section class="conteneur">
             <div class="off-screen-menu">
                 <ul>
                     <li><a href="">Nouveautés</a></li>
@@ -25,45 +25,86 @@
                     <li><a href="">Cinéma</a></li>
                     <li><a href="">Sport</a></li>
                 </ul>
-             </div>
-<!-- BARRES HORIZONTALES DU MENU BURGER -->
- 
-                <div class ="ham-menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+            </div>
+            <!-- BARRES HORIZONTALES DU MENU BURGER -->
 
+            <div class="ham-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- LOGO ET NOM S'AFFICHE UNIQUEMENT SUR DESKTOP -->
+
+
+            <img class="logo" src="quizz.png" alt="Logo quiz-whiz" />
+
+            <div class="logonav">
                 <h1>Quiz-whiz</h1>
 
-                <img src="profile.jpeg" alt="Profile picture"/>
-            </section>
-        </nav>
+                <div class="navdesktop">
+                    <ul>
+                        <li><a href="">Nouveautés</a></li>
+                        <li><a href="">Culture G</a></li>
+                        <li><a href="">Cinéma</a></li>
+                        <li><a href="">Sport</a></li>
+                    </ul>
+                </div>
+            </div>
 
-        <!-- BULLES AVEC NOMS DE QUIZ -->
+            <img src="profile.jpeg" alt="Profile picture" />
+        </section>
+    </nav>
+
+    <!-- BULLES AVEC NOMS DE QUIZ -->
 
 
-        <header>
-            <div class="bubbles">
+    <header>
+
+        <div class="bubbles">
+
+            <!-- CATEG-CONTAINER UTILISÉ AFIN DE GERER LES IMAGES EN PLUS EN DESKTOP-->
+            <div class="categ-container">
                 <div class="categ">
-                <img src="voyage.jpg" alt="voyage en avion"/>
-                <h2><a href="">Quiz Voyages</a></h2>
+                    <img src="voyage.jpg" alt="voyage en avion" />
+                    <h2><a href="">Quiz Voyages</a></h2>
+                </div>
+
+                <div class="categ">
+                    <img src="histoire.jpg" alt="livre d'histoire" />
+                    <h2><a href="">Quiz Histoire</a></h2>
+                </div>
+
+
+                <div class="categ">
+                    <img src="anime.jpg" alt="univers animé japonais" />
+                    <h2><a href="">Quiz Anime</a></h2>
+
+                </div>
+
+                <div class="categ-container">
+                    <div class="categ2">
+                        <img src="food.jpg" alt="Nourriture" />
+                        <h2><a href="">Quiz Food</a></h2>
+                    </div>
+
+                    <div class="categ2">
+                        <img src="culture.jpg" alt="Culture générale" />
+                        <h2><a href="">Quiz Culture G</a></h2>
+                    </div>
+
+                    <div class="categ2">
+                        <img src="actu.jpg" alt="Actualité" />
+                        <h2><a href="">Quiz Actu</a></h2>
+                    </div>
+                </div>
+
             </div>
 
-            <div class="categ">
-                <img src="histoire.jpg" alt="livre d'histoire"/>
-                <h2><a href="">Quiz Histoire</a></h2>
-            </div>
+        </div>
 
+    </header>
 
-            <div class="categ">
-                <img src="anime.jpg" alt="univers animé japonais"/>
-                <h2><a href="">Quiz Anime</a></h2>
-            </div>
-            </div>
-
-        </header>
-    
 
     <main>
 

@@ -32,6 +32,10 @@ nav {
 
 }
 
+.logo {
+    display: none;
+}
+
 nav h1 {
     font-size: 30px;
 }
@@ -41,6 +45,14 @@ nav img {
     border-radius: 50%;
     outline: white solid 2px;
 
+}
+
+.navdesktop {
+    display: none;
+}
+
+.navbardesktop {
+    display: none;
 }
 
 
@@ -113,7 +125,7 @@ nav img {
     max-width: 450px;
     position: fixed;
     top: 0;
-    right: -450px;
+    left: -450px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -142,7 +154,7 @@ nav img {
 
 
 .off-screen-menu.active {
-    right: 0;
+    left: 0;
 }
 
 
@@ -164,9 +176,18 @@ header {
 .bubbles {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 3px;
+
+}
+
+.categ-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 4px;
+
 
 }
 
@@ -182,6 +203,10 @@ header {
 
 }
 
+.categ2 {
+    display: none;
+}
+
 header img {
     width: 100px;
     height: 100px;
@@ -192,10 +217,6 @@ header img {
     box-shadow: 1px 2px 5px white;
 }
 
-.categ {
-    display: flex;
-
-}
 
 body {
     background-color: var(--body-color);
@@ -205,4 +226,118 @@ body {
 footer {
     background-color: var(--secondary-color);
     color: var(--main-font-color);
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+
+    .bubbles {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .categ-container {
+        gap: 50px;
+    }
+
+
+}
+
+@media screen and (min-width: 992px) {
+
+    nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding-right: 100px;
+    }
+
+    .off-screen-menu {
+        display: none;
+    }
+
+    .ham-menu {
+        display: none;
+    }
+
+    .ham-menu span {
+        display: none;
+    }
+
+    .logo {
+        display: inline-block;
+        width: 70px;
+        outline: none;
+        margin-left: 180px;
+
+    }
+
+    .navdesktop {
+        display: flex;
+        font-size: 30px;
+        font-family: "Inter", sans-serif;
+    }
+
+    .navdesktop ul,
+    li {
+        display: flex;
+        list-style-type: none;
+        text-decoration: none;
+        gap: 40px;
+    }
+
+    .navdesktop a {
+        text-decoration: none;
+        color: var(--body-color);
+        font-size: 20px;
+    }
+
+    .navdesktop a:hover {
+        color: var(--button-color);
+        transition: 0.5s;
+    }
+
+    .logonav {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+        margin-right: 100px;
+
+    }
+
+    .logonav h1 {
+        padding-left: 10px;
+        font-size: 40px;
+    }
+
+    header {
+        font-size: 15px;
+        padding: 10px;
+
+    }
+
+    .bubbles {
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .categ-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: 60px;
+
+    }
+
+    .categ,
+    .categ2 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+
 }
