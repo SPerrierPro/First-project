@@ -38,6 +38,7 @@ nav {
 
 nav h1 {
     font-size: 30px;
+    font-weight: 80;
 }
 
 nav img {
@@ -171,6 +172,10 @@ header {
     padding-left: 5px;
     padding-right: 5px;
 
+}
+
+header h2 {
+    font-weight: 80;
 }
 
 .bubbles {
