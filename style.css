@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Jua&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jua&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* ---------------------    Global settings   ----------------------- */
+
 
 :root {
     --main-color: #5D44AD;
@@ -8,13 +9,29 @@
     --body-color: #DAD4D4;
     --main-font-color: #fff;
     --purple-font-color: #5D44AD;
-    --yellow-color: #FFEE5B;
-    --title-font: ;
-    --text-font: ;
+    --bottom-page-color: #1F1149;
+}
+
+@font-face {
+    /* For H1 and H2 only */
+    font-family: "jua";
+    src: url("assets/fonts/Jua-Regular.ttf");
+}
+
+@font-face {
+    /* For Body and text only */
+    font-family: "inter";
+    src: url("assets/fonts/Inter-VariableFont_opsz,wght.ttf");
 }
 
 * {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --yellow-color: #FFEE5B;
+    --title-font: ;
+    --text-font: ;
+
 }
 
 
@@ -271,12 +288,6 @@ body article {
 
 
 
-
-footer {
-    background-color: var(--secondary-color);
-    color: var(--main-font-color);
-}
-
 @media screen and (min-width: 768px) and (max-width: 992px) {
 
     .bubbles {
@@ -382,4 +393,172 @@ footer {
         flex-direction: column;
         align-items: center;
     }
+
+}
+
+
+/* ---------------------    Footer   ----------------------- */
+
+
+footer {
+    background-color: var(--secondary-color);
+    color: var(--main-font-color);
+
+    @media screen and (min-width: 992px) {
+        flex-direction: row;
+        justify-items: center;
+    }
+}
+
+.mainFooter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    @media screen and (min-width: 992px) {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 70vw;
+        padding: 1rem;
+    }
+}
+
+.logoAndText {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+
+    @media screen and (min-width: 992px) {
+        width: 34%;
+    }
+}
+
+
+.logo img {
+    width: 3.5rem;
+}
+
+.logo h2 {
+    font-family: "jua";
+    font-size: 1rem;
+    transform: translate(0px, -45%)
+}
+
+.logoAndText p {
+    font-family: "Inter";
+    font-size: .7rem;
+    width: 70%;
+}
+
+.socialNetworks {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style: none;
+    gap: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.socialNetworks img {
+    width: 1.5rem;
+}
+
+/* Contact class is hidden by default => only diplayed in desktop version*/
+.contact {
+    display: none;
+    font-family: "inter";
+
+    @media screen and (min-width: 992px) {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.contact h2 {
+    font-size: 1rem;
+}
+
+.contact ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin-left: 1rem;
+    font-family: "inter";
+}
+
+.contact ul a {
+    text-decoration: none;
+    color: var(--main-font-color);
+    font-family: "inter";
+    font-size: .7rem;
+}
+
+/* Games class is hidden by default => only diplayed in desktop version*/
+.games {
+    display: none;
+    font-family: "inter";
+
+
+    @media screen and (min-width: 992px) {
+        display: flex;
+        flex-direction: column;
+        transform: translate(0px, -.45rem);
+    }
+}
+
+.games h2 {
+    font-size: 1rem;
+}
+
+.games ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin-left: 1rem;
+    font-family: "inter";
+}
+
+.games ul a {
+    text-decoration: none;
+    color: var(--main-font-color);
+    font-family: "inter";
+    font-size: .7rem;
+}
+
+/* Secondary footer class is hidden by default => only diplayed in desktop version*/
+.secFooter {
+    display: none;
+    width: 100%;
+    height: 2vh;
+
+    @media screen and (min-width: 992px) {
+        display: flex;
+        background-color: var(--bottom-page-color);
+        justify-content: space-between;
+        align-items: center;
+        font-family: "inter";
+        font-size: .6rem;
+        padding: .5rem;
+    }
+}
+
+.secFooter ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 3rem;
+    margin-left: .1rem;
+}
+
+.secFooter li a {
+    text-decoration: none;
+    color: var(--main-font-color);
+}
+
+.secFooter span {
+    margin-right: .1rem;
+    font-size: .7rem;
 }
