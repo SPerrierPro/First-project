@@ -245,12 +245,15 @@ body article {
     border-radius: 5%;
     height: 300px;
     width: 370px;
+    box-shadow: 3px 5px 5px darkgrey;
 
 }
 
 .game {
     display: none;
 }
+
+
 
 /* Début CSS pour la homepage*/
 /* Rajouter dans le * la line height de 1.5*/
@@ -284,6 +287,7 @@ body article {
     border-radius: 10px;
     padding: 4px;
     border: none;
+    box-shadow: 3px 5px 5px darkslateblue;
 }
 
 .validation {
@@ -296,6 +300,7 @@ body article {
     padding: 10px;
     text-align: center;
     border: none;
+    box-shadow: 3px 5px 5px darkgrey;
 }
 
 
