@@ -29,7 +29,6 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .logo {
@@ -45,7 +44,6 @@ nav img {
     width: 40px;
     border-radius: 50%;
     outline: white solid 2px;
-
 }
 
 .navdesktop {
@@ -71,9 +69,7 @@ nav img {
 .ham-menu {
     height: 30px;
     width: 30px;
-
     position: relative;
-
 }
 
 
@@ -90,7 +86,6 @@ nav img {
     left: 50%;
     transform: translate(-50%, -50%);
     transition: 0.5s ease;
-
 }
 
 .ham-menu span:nth-child(1) {
@@ -171,7 +166,6 @@ header {
     font-family: "jua";
     padding-left: 5px;
     padding-right: 5px;
-
 }
 
 header h2 {
@@ -184,7 +178,6 @@ header h2 {
     justify-content: center;
     flex-wrap: wrap;
     gap: 3px;
-
 }
 
 .categ-container {
@@ -192,8 +185,6 @@ header h2 {
     flex-direction: row;
     justify-content: space-evenly;
     gap: 4px;
-
-
 }
 
 .bubbles a {
@@ -205,7 +196,6 @@ header h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 .categ2 {
@@ -225,8 +215,6 @@ header img {
 
 body {
     background-color: var(--body-color);
-
-
 }
 
 body article {
@@ -241,7 +229,6 @@ body article {
     border-radius: 5%;
     height: 40vh;
     width: 90vw;
-
 }
 
 .game {
@@ -301,8 +288,6 @@ footer {
     .categ-container {
         gap: 50px;
     }
-
-
 }
 
 @media screen and (min-width: 992px) {
@@ -330,8 +315,7 @@ footer {
         display: inline-block;
         width: 70px;
         outline: none;
-        margin-left: 180px;
-
+        margin-left: 100px;
     }
 
     .navdesktop {
@@ -352,6 +336,7 @@ footer {
         text-decoration: none;
         color: var(--body-color);
         font-size: 20px;
+        white-space: nowrap;
     }
 
     .navdesktop a:hover {
@@ -365,32 +350,30 @@ footer {
         width: 100%;
         justify-content: space-between;
         margin-right: 100px;
-
     }
 
     .logonav h1 {
         padding-left: 10px;
         font-size: 40px;
+        white-space: nowrap;
     }
 
     header {
         font-size: 15px;
         padding: 10px;
-
     }
 
     .bubbles {
         display: flex;
         justify-content: center;
-
+        white-space: nowrap;
     }
 
     .categ-container {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
-        gap: 60px;
-
+        gap: 3em;
     }
 
     .categ,
@@ -399,7 +382,4 @@ footer {
         flex-direction: column;
         align-items: center;
     }
-
-
-
 }
