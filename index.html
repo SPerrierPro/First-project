@@ -115,15 +115,16 @@
             <!--A organiser en flex column ?-->
             <img alt="Logo Quiz-Whiz" src="assets/images/quizz.png" class="homepage-logo" class="homepage">
             <!--Les faire se toggle visible/invisible en fonction de la disposition de la page-->
-            <h2 class="game">Question 1/14</h2>
+            <h2 class="game" id="question">Question 1/14</h2>
             <div class="quiz-background"><!--= notre carré violet, column ?-->
-                <div class="game"> <!--Score + nom, row ?-->
+                <div class="game" id="player"> <!--Score + nom, row ?-->
                     <h3>Nom du joueur</h3>
                     <h3>Score : 0 points</h3>
                 </div>
                 <div>
                     <!--Column sur mobile, row-reverse sur  pc pour bien afficher l'image à droite?-->
-                    <img alt="Description de l'image affichée avec la question" src="#" class="game">
+                    <img alt="Description de l'image affichée avec la question" src="quizimg.jpg" id="quizimg"
+                        class="game">
                     <!--Src et alt à changer à chaque question pour bien correspondre-->
                     <div class="homepage name-selection">
                         <!-- Toggle avec le div suivant pour switch de la version connexion vers la version question. Column?-->
@@ -132,11 +133,14 @@
                     </div>
                     <div class="game">
                         <!--Version question, à organiser en grid de 3 row / 2 col, dont une rangée ou le titre prend les deux column de large?-->
-                        <h2>Où se situe l'Alabama ?</h2>+
-                        <button><span>A</span>En Afrique</button>
-                        <button><span>B</span>Aux Etats-Unis</button>
-                        <button><span>C</span>En Italie</button>
-                        <button><span>D</span>Dans la Seine</button>
+                        <h2 id="qstn">Où se situe l'Alabama ?</h2>
+
+                        <div class="btn-container">
+                            <button class="btn"><span id="spn">A</span>En Afrique</button>
+                            <button class="btn"><span id="spn">B</span>Aux Etats-Unis</button>
+                            <button class="btn"><span id="spn">C</span>En Italie</button>
+                            <button class="btn"> <span id="spn">D</span>Dans la Seine</button>
+                        </div>
                         <p>Explications : </p>
                         <!--A voir si on les mets toujours après que le choix de réponse ait été validé, ou uniquement si mauvaise réponse ?-->
                     </div>
