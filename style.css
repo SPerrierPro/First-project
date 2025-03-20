@@ -5,7 +5,7 @@
     --main-color: #5D44AD;
     --secondary-color: #3C2A74;
     --button-color: #C8336E;
-    --body-color: #F0F0F0;
+    --body-color: #DAD4D4;
     --main-font-color: #fff;
     --purple-font-color: #5D44AD;
     --yellow-color: #FFEE5B;
@@ -225,54 +225,65 @@ header img {
 
 body {
     background-color: var(--body-color);
-    color: var(--main-font-color);
+
+
 }
 
-.purplesquare {
-    position: relative;
+body article {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     align-items: center;
-    margin: 80px 20px 20px 20px;
+}
+
+.quiz-background {
     background-color: var(--main-color);
-    border-radius: 8%;
-    z-index: 1;
-    height: 310px;
+    color: var(--main-font-color);
+    border-radius: 5%;
+    height: 40vh;
+    width: 90vw;
+
 }
 
-.purplesquare p {
-    position: absolute;
-    font-family: "Inter", sans-serif;
-    font-size: 20px;
-    bottom: 160px;
+.game {
+    display: none;
 }
 
-.purplesquare input {
-    position: absolute;
-    bottom: 80px;
-    left: 33px;
-    padding: 10px 70px 10px 70px;
+/* Début CSS pour la homepage*/
+/* Rajouter dans le * la line height de 1.5*/
+
+.homepage-logo {
+    max-width: 12vh;
+    margin: 2rem auto 1rem auto;
 }
 
-.purplesquare img {
-    position: absolute;
-    z-index: 2;
-    width: 150px;
-    bottom: 230px;
+.name-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 5rem;
 }
 
-.purplesquare button {
+.name-selection h2 {
+    margin: auto 1rem;
+    text-align: center;
+}
+
+.name-selection input {
+    width: 78vw;
+    height: 2rem;
+}
+
+.validation {
     background-color: var(--button-color);
-    color: var(--body-color);
-    font-family: "Inter", sans-serif;
-    position: absolute;
-    left: 5px;
-    top: 320px;
-    padding: 10px 160px;
-    border-radius: 15px;
-
+    color: var(--main-font-color);
+    width: 90vw;
+    height: 2rem;
+    margin: 1rem auto 3rem auto;
 }
+
+
+
 
 footer {
     background-color: var(--secondary-color);
