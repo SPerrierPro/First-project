@@ -2,7 +2,7 @@
     --main-color: #5D44AD;
     --secondary-color: #3C2A74;
     --button-color: #C8336E;
-    --body-color: #F0F0F0;
+    --body-color: #DAD4D4;
     --main-font-color: #fff;
     --purple-font-color: #5D44AD;
     --title-font: ;
@@ -20,7 +20,64 @@ nav {
 
 body {
     background-color: var(--body-color);
+
 }
+
+body article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quiz-background {
+    background-color: var(--main-color);
+    color: var(--main-font-color);
+    border-radius: 5%;
+    height: 40vh;
+    width: 90vw;
+
+}
+
+.game {
+    display: none;
+}
+
+/* Début CSS pour la homepage*/
+/* Rajouter dans le * la line height de 1.5*/
+
+.homepage-logo {
+    max-width: 12vh;
+    margin: 2rem auto 1rem auto;
+}
+
+.name-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 5rem;
+}
+
+.name-selection h2 {
+    margin: auto 1rem;
+    text-align: center;
+}
+
+.name-selection input {
+    width: 78vw;
+    height: 2rem;
+}
+
+.validation {
+    background-color: var(--button-color);
+    color: var(--main-font-color);
+    width: 90vw;
+    height: 2rem;
+    margin: 1rem auto 3rem auto;
+}
+
+
+
 
 footer {
     background-color: var(--secondary-color);
