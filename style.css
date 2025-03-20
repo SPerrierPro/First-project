@@ -181,6 +181,13 @@ header h2 {
     font-weight: 80;
 }
 
+header h2:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+
+
 .bubbles {
     display: flex;
     flex-direction: row;
@@ -195,8 +202,6 @@ header h2 {
     flex-direction: row;
     justify-content: space-evenly;
     gap: 4px;
-
-
 }
 
 .bubbles a {
@@ -223,6 +228,12 @@ header img {
     outline: white solid 2px;
     margin: 10px;
     box-shadow: 1px 2px 5px white;
+}
+
+header img:hover {
+    transform: scale(1.1);
+    box-shadow: 1px 2px 20px white;
+    transition: 0.5s;
 }
 
 
