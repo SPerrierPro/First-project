@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Jua&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jua&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* ---------------------    Global settings   ----------------------- */
+
 
 :root {
     --main-color: #5D44AD;
@@ -8,13 +9,29 @@
     --body-color: #DAD4D4;
     --main-font-color: #fff;
     --purple-font-color: #5D44AD;
-    --yellow-color: #FFEE5B;
-    --title-font: ;
-    --text-font: ;
+    --bottom-page-color: #1F1149;
+}
+
+@font-face {
+    /* For H1 and H2 only */
+    font-family: "jua";
+    src: url("assets/fonts/Jua-Regular.ttf");
+}
+
+@font-face {
+    /* For Body and text only */
+    font-family: "inter";
+    src: url("assets/fonts/Inter-VariableFont_opsz,wght.ttf");
 }
 
 * {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --yellow-color: #FFEE5B;
+    --title-font: ;
+    --text-font: ;
+
 }
 
 
@@ -29,7 +46,6 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .logo {
@@ -45,7 +61,6 @@ nav img {
     width: 40px;
     border-radius: 50%;
     outline: white solid 2px;
-
 }
 
 .navdesktop {
@@ -69,11 +84,9 @@ nav img {
 }
 
 .ham-menu {
-    z-index: 4;
     height: 30px;
     width: 30px;
     position: relative;
-
 }
 
 
@@ -90,7 +103,6 @@ nav img {
     left: 50%;
     transform: translate(-50%, -50%);
     transition: 0.5s ease;
-
 }
 
 .ham-menu span:nth-child(1) {
@@ -102,7 +114,6 @@ nav img {
 }
 
 .ham-menu.active span:nth-child(1) {
-
     top: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
 }
@@ -112,7 +123,6 @@ nav img {
 }
 
 .ham-menu.active span:nth-child(3) {
-
     top: 50%;
     transform: translate(-50%, -50%) rotate(-45deg);
 }
@@ -122,7 +132,6 @@ nav img {
 
 
 .off-screen-menu {
-    z-index: 3;
     background-color: white;
     height: 100%;
     width: 100%;
@@ -174,19 +183,11 @@ header {
     font-family: "jua";
     padding-left: 5px;
     padding-right: 5px;
-
 }
 
 header h2 {
     font-weight: 80;
 }
-
-header h2:hover {
-    transform: scale(1.1);
-    transition: 0.5s;
-}
-
-
 
 .bubbles {
     display: flex;
@@ -194,7 +195,6 @@ header h2:hover {
     justify-content: center;
     flex-wrap: wrap;
     gap: 3px;
-
 }
 
 .categ-container {
@@ -213,7 +213,6 @@ header h2:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 .categ2 {
@@ -230,12 +229,6 @@ header img {
     box-shadow: 1px 2px 5px white;
 }
 
-header img:hover {
-    transform: scale(1.1);
-    box-shadow: 1px 2px 20px white;
-    transition: 0.5s;
-}
-
 
 body {
     background-color: var(--body-color);
@@ -248,101 +241,23 @@ body article {
 }
 
 .quiz-background {
-    position: relative;
-    z-index: 1;
-    margin-top: 10vh;
     background-color: var(--main-color);
     color: var(--main-font-color);
     border-radius: 5%;
-    height: 370px;
-    width: 370px;
+    height: 40vh;
+    width: 90vw;
 }
 
-/* AFFICHAGE DU QUIZ */
-
-#question {
-    position: absolute;
-    z-index: 2;
-    padding: 12px 90px;
-    top: 250px;
-    background-color: white;
-    border-radius: 15px;
-    font-size: 18px;
-    color: var(--main-color);
+.game {
+    display: none;
 }
-
-#player {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 30px 10px 0px 10px;
-    color: var(--yellow-color);
-}
-
-#quizimg {
-    width: 250px;
-    height: 100px;
-    object-fit: cover;
-    margin: 20px 0px 0px 60px;
-    border-radius: 10px;
-    outline: white solid 1px;
-}
-
-#qstn {
-    margin: 10px 110px;
-    width: 100%;
-    font-size: 15px;
-}
-
-.btn-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 15px;
-
-}
-
-.game button {
-    flex: 1 1 calc(50% - 10px);
-    padding: 8px;
-    background-color: white;
-    border-radius: 15px;
-    border: 0;
-    color: var(--main-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-}
-
-#spn {
-    padding: 4px 8px;
-    text-align: left;
-    background-color: var(--main-color);
-    border-radius: 15px;
-    color: white;
-    margin-left: 0;
-}
-
-.game p {
-    background-color: var(--secondary-color);
-    margin: 10px;
-    border-radius: 10px;
-    padding: 10px;
-
-}
-
 
 /* Début CSS pour la homepage*/
 /* Rajouter dans le * la line height de 1.5*/
 
 .homepage-logo {
-    position: absolute;
-    z-index: 2;
-    top: 155px;
-    max-width: 150px;
-    margin: 3rem auto 1rem auto;
-    filter: drop-shadow(1px 5px 10px darkslateblue);
+    max-width: 12vh;
+    margin: 2rem auto 1rem auto;
 }
 
 .name-selection {
@@ -350,22 +265,17 @@ body article {
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    margin-top: 6rem;
+    margin-top: 5rem;
 }
 
 .name-selection h2 {
-    margin: auto 2rem;
+    margin: auto 1rem;
     text-align: center;
-    padding-bottom: 10px;
 }
 
 .name-selection input {
     width: 78vw;
     height: 2rem;
-    border-radius: 10px;
-    padding: 4px;
-    border: none;
-    box-shadow: 3px 5px 5px darkslateblue;
 }
 
 .validation {
@@ -374,30 +284,11 @@ body article {
     width: 90vw;
     height: 2rem;
     margin: 1rem auto 3rem auto;
-    border-radius: 10px;
-    padding: 10px;
-    text-align: center;
-    border: none;
 }
 
 
 
-footer {
-    background-color: var(--secondary-color);
-    color: var(--main-font-color);
-}
-
-/* À AFFICHER AFIN DE REVENIR A LA PAGE D'ACCUEIL*/
-
-.homepage {
-    display: none;
-}
-
-.homepage-logo {
-    display: none;
-}
-
-@media screen and (min-width: 500px) and (max-width: 992px) {
+@media screen and (min-width: 768px) and (max-width: 992px) {
 
     .bubbles {
         display: flex;
@@ -408,90 +299,6 @@ footer {
     .categ-container {
         gap: 50px;
     }
-
-    .quiz-background {
-        position: relative;
-        z-index: 1;
-        margin-top: 75px;
-        background-color: var(--main-color);
-        color: var(--main-font-color);
-        border-radius: 15px;
-        height: 350px;
-        width: 75vw;
-        box-shadow: 3px 5px 5px darkgrey;
-
-    }
-
-    .homepage-logo {
-        top: 180px;
-    }
-
-
-    .name-selection h2 {
-        padding: 20px;
-    }
-
-    .name-selection input {
-        width: 300px;
-        height: 2rem;
-        border-radius: 10px;
-        padding: 4px;
-        border: none;
-    }
-
-    .validation {
-        width: 70vw;
-        height: 2rem;
-        padding: 20px;
-        box-shadow: 3px 5px 5px darkgrey;
-        border: none;
-    }
-
-    #player {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin: 30px 30px 0px 30px;
-        color: var(--yellow-color);
-    }
-
-
-    #quizimg {
-        width: 350px;
-        height: 100px;
-
-        margin: 20px 160px 0px 130px;
-        border-radius: 10px;
-        outline: white solid 4px;
-    }
-
-    #qstn {
-        margin: 10px 210px;
-        width: 100%;
-        font-size: 20px;
-    }
-
-    .game button {
-        padding: 3px 20px 0px 3px;
-        font-size: 20px;
-    }
-
-    #spn {
-        padding: 6px 11px;
-        text-align: left;
-        background-color: var(--main-color);
-        border-radius: 20px;
-        color: white;
-        margin-left: 0;
-        font-size: 20px;
-    }
-
-    .quiz-background {
-        height: 380px;
-
-    }
-
-
 }
 
 @media screen and (min-width: 992px) {
@@ -519,8 +326,7 @@ footer {
         display: inline-block;
         width: 70px;
         outline: none;
-        margin-left: 180px;
-
+        margin-left: 100px;
     }
 
     .navdesktop {
@@ -541,6 +347,7 @@ footer {
         text-decoration: none;
         color: var(--body-color);
         font-size: 20px;
+        white-space: nowrap;
     }
 
     .navdesktop a:hover {
@@ -554,32 +361,30 @@ footer {
         width: 100%;
         justify-content: space-between;
         margin-right: 100px;
-
     }
 
     .logonav h1 {
         padding-left: 10px;
         font-size: 40px;
+        white-space: nowrap;
     }
 
     header {
         font-size: 15px;
         padding: 10px;
-
     }
 
     .bubbles {
         display: flex;
         justify-content: center;
-
+        white-space: nowrap;
     }
 
     .categ-container {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
-        gap: 60px;
-
+        gap: 3em;
     }
 
     .categ,
@@ -589,118 +394,9 @@ footer {
         align-items: center;
     }
 
-    .quiz-background {
-        position: relative;
-        z-index: 1;
-        margin-top: 8vh;
-        background-color: var(--main-color);
-        color: var(--main-font-color);
-        border-radius: 15px;
-        height: 400px;
-        width: 75vw;
-        box-shadow: 3px 5px 5px darkgrey;
-
-    }
-
-    .homepage-logo {
-        position: absolute;
-        z-index: 2;
-        top: 180px;
-        max-width: 150px;
-        margin: 3rem auto 1rem auto;
-    }
-
-
-    .name-selection h2 {
-        margin: auto 3%;
-        text-align: center;
-        padding: 20px;
-    }
-
-    .name-selection input {
-        width: 40vw;
-        height: 2rem;
-        border-radius: 10px;
-        padding: 4px;
-        border: none;
-    }
-
-    .validation {
-        background-color: var(--button-color);
-        color: var(--main-font-color);
-        width: 30vw;
-        height: 2rem;
-        margin: 1rem auto 3rem auto;
-        border-radius: 10px;
-        padding: 20px;
-        text-align: center;
-        box-shadow: 3px 5px 5px darkgrey;
-        border: none;
-    }
-
-    #question {
-        position: absolute;
-        z-index: 2;
-        padding: 10px 220px;
-        top: 280px;
-        background-color: white;
-        border-radius: 15px;
-        font-size: 18px;
-        color: var(--main-color);
-    }
-
-    #player {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin: 30px 80px 0px 80px;
-        color: var(--yellow-color);
-    }
-
-
-    #quizimg {
-        position: absolute;
-        width: 220px;
-        height: 280px;
-        right: 80px;
-        bottom: 40px;
-        border-radius: 10px;
-        outline: white solid 4px;
-    }
-
-    #qstn {
-        position: absolute;
-        bottom: 220px;
-        left: 80px;
-        font-size: 24px;
-    }
-
-    .btn-container {
-        margin: 150px 400px 30px 40px;
-
-    }
-
-    .game button {
-        padding: 3px 1px 0px 3px;
-        font-size: 20px;
-    }
-
-    #spn {
-        padding: 6px 11px;
-        text-align: left;
-        background-color: var(--main-color);
-        border-radius: 20px;
-        color: white;
-        margin-left: 0;
-        font-size: 20px;
-    }
-
-    .game p {
-        width: 60%;
-
-  }
-
 }
+
+
 /* ---------------------    Footer   ----------------------- */
 
 
@@ -713,6 +409,32 @@ footer {
         justify-items: center;
     }
 }
+
+.mainFooter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    @media screen and (min-width: 992px) {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 70vw;
+        padding: 1rem;
+    }
+}
+
+.logoAndText {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+
+    @media screen and (min-width: 992px) {
+        width: 34%;
+    }
+}
+
 
 .logo img {
     width: 3.5rem;
@@ -836,4 +558,7 @@ footer {
     color: var(--main-font-color);
 }
 
+.secFooter span {
+    margin-right: .1rem;
+    font-size: .7rem;
 }
