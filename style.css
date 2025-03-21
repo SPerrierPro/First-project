@@ -84,6 +84,7 @@ nav img {
 }
 
 .ham-menu {
+    z-index: 4;
     height: 30px;
     width: 30px;
     position: relative;
@@ -114,6 +115,7 @@ nav img {
 }
 
 .ham-menu.active span:nth-child(1) {
+
     top: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
 }
@@ -123,6 +125,7 @@ nav img {
 }
 
 .ham-menu.active span:nth-child(3) {
+
     top: 50%;
     transform: translate(-50%, -50%) rotate(-45deg);
 }
@@ -132,6 +135,7 @@ nav img {
 
 
 .off-screen-menu {
+    z-index: 3;
     background-color: white;
     height: 100%;
     width: 100%;
@@ -189,6 +193,13 @@ header h2 {
     font-weight: 80;
 }
 
+header h2:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+
+
 .bubbles {
     display: flex;
     flex-direction: row;
@@ -229,6 +240,12 @@ header img {
     box-shadow: 1px 2px 5px white;
 }
 
+header img:hover {
+    transform: scale(1.1);
+    box-shadow: 1px 2px 20px white;
+    transition: 0.5s;
+}
+
 
 body {
     background-color: var(--body-color);
@@ -241,23 +258,101 @@ body article {
 }
 
 .quiz-background {
+    position: relative;
+    z-index: 1;
+    margin-top: 10vh;
     background-color: var(--main-color);
     color: var(--main-font-color);
     border-radius: 5%;
-    height: 40vh;
-    width: 90vw;
+    height: 370px;
+    width: 370px;
 }
 
-.game {
-    display: none;
+/* AFFICHAGE DU QUIZ */
+
+#question {
+    position: absolute;
+    z-index: 2;
+    padding: 12px 90px;
+    top: 250px;
+    background-color: white;
+    border-radius: 15px;
+    font-size: 18px;
+    color: var(--main-color);
 }
+
+#player {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 30px 10px 0px 10px;
+    color: var(--yellow-color);
+}
+
+#quizimg {
+    width: 250px;
+    height: 100px;
+    object-fit: cover;
+    margin: 20px 0px 0px 60px;
+    border-radius: 10px;
+    outline: white solid 1px;
+}
+
+#qstn {
+    margin: 10px 110px;
+    width: 100%;
+    font-size: 15px;
+}
+
+.btn-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 15px;
+
+}
+
+.game button {
+    flex: 1 1 calc(50% - 10px);
+    padding: 8px;
+    background-color: white;
+    border-radius: 15px;
+    border: 0;
+    color: var(--main-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#spn {
+    padding: 4px 8px;
+    text-align: left;
+    background-color: var(--main-color);
+    border-radius: 15px;
+    color: white;
+    margin-left: 0;
+}
+
+.game p {
+    background-color: var(--secondary-color);
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px;
+
+}
+
 
 /* Début CSS pour la homepage*/
 /* Rajouter dans le * la line height de 1.5*/
 
 .homepage-logo {
-    max-width: 12vh;
-    margin: 2rem auto 1rem auto;
+    position: absolute;
+    z-index: 2;
+    top: 155px;
+    max-width: 150px;
+    margin: 3rem auto 1rem auto;
+    filter: drop-shadow(1px 5px 10px darkslateblue);
 }
 
 .name-selection {
@@ -265,17 +360,22 @@ body article {
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    margin-top: 5rem;
+    margin-top: 6rem;
 }
 
 .name-selection h2 {
-    margin: auto 1rem;
+    margin: auto 2rem;
     text-align: center;
+    padding-bottom: 10px;
 }
 
 .name-selection input {
     width: 78vw;
     height: 2rem;
+    border-radius: 10px;
+    padding: 4px;
+    border: none;
+    box-shadow: 3px 5px 5px darkslateblue;
 }
 
 .validation {
@@ -284,9 +384,13 @@ body article {
     width: 90vw;
     height: 2rem;
     margin: 1rem auto 3rem auto;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    border: none;
 }
 
-
+@media screen and (min-width: 500px) and (max-width: 992px) {
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
 
@@ -299,6 +403,89 @@ body article {
     .categ-container {
         gap: 50px;
     }
+
+    .quiz-background {
+        position: relative;
+        z-index: 1;
+        margin-top: 75px;
+        background-color: var(--main-color);
+        color: var(--main-font-color);
+        border-radius: 15px;
+        height: 350px;
+        width: 75vw;
+        box-shadow: 3px 5px 5px darkgrey;
+
+    }
+
+    .homepage-logo {
+        top: 180px;
+    }
+
+
+    .name-selection h2 {
+        padding: 20px;
+    }
+
+    .name-selection input {
+        width: 300px;
+        height: 2rem;
+        border-radius: 10px;
+        padding: 4px;
+        border: none;
+    }
+
+    .validation {
+        width: 70vw;
+        height: 2rem;
+        padding: 20px;
+        box-shadow: 3px 5px 5px darkgrey;
+        border: none;
+    }
+
+    #player {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 30px 30px 0px 30px;
+        color: var(--yellow-color);
+    }
+
+
+    #quizimg {
+        width: 350px;
+        height: 100px;
+
+        margin: 20px 160px 0px 130px;
+        border-radius: 10px;
+        outline: white solid 4px;
+    }
+
+    #qstn {
+        margin: 10px 210px;
+        width: 100%;
+        font-size: 20px;
+    }
+
+    .game button {
+        padding: 3px 20px 0px 3px;
+        font-size: 20px;
+    }
+
+    #spn {
+        padding: 6px 11px;
+        text-align: left;
+        background-color: var(--main-color);
+        border-radius: 20px;
+        color: white;
+        margin-left: 0;
+        font-size: 20px;
+    }
+
+    .quiz-background {
+        height: 380px;
+
+    }
+
 }
 
 @media screen and (min-width: 992px) {
@@ -394,6 +581,117 @@ body article {
         align-items: center;
     }
 
+    .quiz-background {
+        position: relative;
+        z-index: 1;
+        margin-top: 8vh;
+        background-color: var(--main-color);
+        color: var(--main-font-color);
+        border-radius: 15px;
+        height: 400px;
+        width: 75vw;
+        box-shadow: 3px 5px 5px darkgrey;
+
+    }
+
+    .homepage-logo {
+        position: absolute;
+        z-index: 2;
+        top: 180px;
+        max-width: 150px;
+        margin: 3rem auto 1rem auto;
+    }
+
+
+    .name-selection h2 {
+        margin: auto 3%;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .name-selection input {
+        width: 40vw;
+        height: 2rem;
+        border-radius: 10px;
+        padding: 4px;
+        border: none;
+    }
+
+    .validation {
+        background-color: var(--button-color);
+        color: var(--main-font-color);
+        width: 30vw;
+        height: 2rem;
+        margin: 1rem auto 3rem auto;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 3px 5px 5px darkgrey;
+        border: none;
+    }
+
+    #question {
+        position: absolute;
+        z-index: 2;
+        padding: 10px 220px;
+        top: 280px;
+        background-color: white;
+        border-radius: 15px;
+        font-size: 18px;
+        color: var(--main-color);
+    }
+
+    #player {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 30px 80px 0px 80px;
+        color: var(--yellow-color);
+    }
+
+
+    #quizimg {
+        position: absolute;
+        width: 220px;
+        height: 280px;
+        right: 80px;
+        bottom: 40px;
+        border-radius: 10px;
+        outline: white solid 4px;
+    }
+
+    #qstn {
+        position: absolute;
+        bottom: 220px;
+        left: 80px;
+        font-size: 24px;
+    }
+
+    .btn-container {
+        margin: 150px 400px 30px 40px;
+
+    }
+
+    .game button {
+        padding: 3px 1px 0px 3px;
+        font-size: 20px;
+    }
+
+    #spn {
+        padding: 6px 11px;
+        text-align: left;
+        background-color: var(--main-color);
+        border-radius: 20px;
+        color: white;
+        margin-left: 0;
+        font-size: 20px;
+    }
+
+    .game p {
+        width: 60%;
+
+    }
+
 }
 
 
@@ -436,11 +734,11 @@ footer {
 }
 
 
-.logo img {
+.footerLogo img {
     width: 3.5rem;
 }
 
-.logo h2 {
+.footerLogo h2 {
     font-family: "jua";
     font-size: 1rem;
     transform: translate(0px, -45%)
@@ -552,6 +850,7 @@ footer {
     gap: 3rem;
     margin-left: .1rem;
 }
+-
 
 .secFooter li a {
     text-decoration: none;
