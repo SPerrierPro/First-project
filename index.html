@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="Whiz-Quiz team"
+        content="Jeu de quiz interactif, Whiz-Quiz est la référence des quiz en ligne pour petits et grands.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/images/quizz.ico">
+    <title>Quiz-Whiz | Jeu de quiz en ligne</title>
+</head>
+
+<body>
+    <!-- BARRE DE NAVIGATION + MENU BURGER -->
+    <nav>
+
+        <!-- MENU BURGER -->
+
+        <section class="conteneur">
+            <div class="off-screen-menu">
+                <ul>
+                    <li><a href="">Nouveautés</a></li>
+                    <li><a href="">Culture G</a></li>
+                    <li><a href="">Cinéma</a></li>
+                    <li><a href="">Sport</a></li>
+                </ul>
+            </div>
+            <!-- BARRES HORIZONTALES DU MENU BURGER -->
+
+            <div class="ham-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- LOGO ET NOM S'AFFICHE UNIQUEMENT SUR DESKTOP -->
+
+
+            <img class="logo" src="quizz.png" alt="Logo quiz-whiz" />
+
+            <div class="logonav">
+                <h1>Quiz-whiz</h1>
+
+                <div class="navdesktop">
+                    <ul>
+                        <li><a href="">Nouveautés</a></li>
+                        <li><a href="">Culture G</a></li>
+                        <li><a href="">Cinéma</a></li>
+                        <li><a href="">Sport</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <img src="profile.jpeg" alt="Profile picture" />
+        </section>
+    </nav>
+
+    <!-- BULLES AVEC NOMS DE QUIZ -->
+
+
+    <header>
+
+        <div class="bubbles">
+
+            <!-- CATEG-CONTAINER UTILISÉ AFIN DE GERER LES IMAGES EN PLUS EN DESKTOP-->
+            <div class="categ-container">
+                <div class="categ">
+                    <img src="voyage.jpg" alt="voyage en avion" />
+                    <h2><a href="">Quiz Voyages</a></h2>
+                </div>
+
+                <div class="categ">
+                    <img src="histoire.jpg" alt="livre d'histoire" />
+                    <h2><a href="">Quiz Histoire</a></h2>
+                </div>
+
+
+                <div class="categ">
+                    <img src="anime.jpg" alt="univers animé japonais" />
+                    <h2><a href="">Quiz Anime</a></h2>
+
+                </div>
+
+                <div class="categ-container">
+                    <div class="categ2">
+                        <img src="food.jpg" alt="Nourriture" />
+                        <h2><a href="">Quiz Food</a></h2>
+                    </div>
+
+                    <div class="categ2">
+                        <img src="culture.jpg" alt="Culture générale" />
+                        <h2><a href="">Quiz Culture G</a></h2>
+                    </div>
+
+                    <div class="categ2">
+                        <img src="actu.jpg" alt="Actualité" />
+                        <h2><a href="">Quiz Actu</a></h2>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!--Je vous mets des commentaires sur comment j'ai pensé la chose en amont 
+        pour tout articuler "facilement", mais faites comme vous le sentez si 
+        d'autres dispositions vous paraissent plus évidentes ;)-->
+        <article>
+            <!--A organiser en flex column ?-->
+            <img alt="Logo Quiz-Whiz" src="assets/images/quizz.png" class="homepage-logo" class="homepage">
+            <!--Les faire se toggle visible/invisible en fonction de la disposition de la page-->
+            <h2 class="game" id="question">Question 1/14</h2>
+            <div class="quiz-background"><!--= notre carré violet, column ?-->
+                <div class="game" id="player"> <!--Score + nom, row ?-->
+                    <h3>Nom du joueur</h3>
+                    <h3>Score : 0 points</h3>
+                </div>
+                <div>
+                    <!--Column sur mobile, row-reverse sur  pc pour bien afficher l'image à droite?-->
+                    <img alt="Description de l'image affichée avec la question" src="quizimg.jpg" id="quizimg"
+                        class="game">
+                    <!--Src et alt à changer à chaque question pour bien correspondre-->
+                    <div class="homepage name-selection">
+                        <!-- Toggle avec le div suivant pour switch de la version connexion vers la version question. Column?-->
+                        <h2>Pour lancer votre quiz, saisissez votre nom :</h2>
+                        <input type="text" placeholder="Nom">
+                    </div>
+                    <div class="game">
+                        <!--Version question, à organiser en grid de 3 row / 2 col, dont une rangée ou le titre prend les deux column de large?-->
+                        <h2 id="qstn">Où se situe l'Alabama ?</h2>
+
+                        <div class="btn-container">
+                            <button class="btn"><span id="spn">A</span>En Afrique</button>
+                            <button class="btn"><span id="spn">B</span>Aux Etats-Unis</button>
+                            <button class="btn"><span id="spn">C</span>En Italie</button>
+                            <button class="btn"> <span id="spn">D</span>Dans la Seine</button>
+                        </div>
+                        <p>Explications : </p>
+                        <!--A voir si on les mets toujours après que le choix de réponse ait été validé, ou uniquement si mauvaise réponse ?-->
+                    </div>
+                </div>
+            </div>
+            <button class="validation">OK</button>
+        </article>
+    </main>
+
+    <footer>
+        <!-- Footer is divided in 2 parts => mainFooter and secFooter to easily manage the css and responsive elements -->
+        <div Class="mainFooter">
+
+            <!-- div Class loagoAndText contains the logo and the descritpion text => need to keep this elements in the same
+        "box". -->
+            <div class="logoAndText">
+
+                <!-- div Class logo => since we only have the wiz hat as logo, this box links the .png img and the text
+            (it's better to create a .png logo version with title included). -->
+                <div class="logo">
+                    <img src="assets/images/quizz.png" alt="Logo de Whiz-Quiz">
+                    <h2>Quiz-Whiz</h2>
+                </div>
+                <p>Découvrez notre site de quiz intéractifs !
+                    Testez vos connaissances, amusez-vous et défiez vos amis avec des milliers de questions passionantes
+                    !
+                </p>
+            </div>
+            <ul class="socialNetworks">
+                <li><a href="#Facebook">
+                        <img src="assets/images/facebook.png" alt="Facebook">
+                    </a>
+                </li>
+                <li><a href="#Instagram">
+                        <img src="assets/images/instagram.png" alt="Instagram">
+                    </a>
+                </li>
+            </ul>
+            <section class="games">
+                <h2>Quiz et Jeux</h2>
+                <ul>
+                    <li><a href="#tousLesQuiz">Tous les quiz</a></li>
+                    <li><a href="#nouveautes">Nouveautés</a></li>
+                    <li><a href="#customQuiz">Quiz personalisés</a></li>
+                </ul>
+            </section>
+            <section Class="contact">
+                <h2>Nous Contacter</h2>
+                <ul>
+                    <li><a href="#about">A propos</a></li>
+                    <li><a href="#faq">F.A.Q</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#Carreer">Carrière</a></li>
+                </ul>
+            </section>
+
+        </div>
+
+        <!-- Div Class secFooter contains the cgv elements of the footer only diplayed in desktop version-->
+        <div class="secFooter">
+            <ul>
+                <li><a href="#legalNotice">Mantions Légales</a></li>
+                <li><a href="#confidentialityPolicy">Confidentialité"></a></li>
+                <li><a href="#cgv">C.G.V</a></li>
+            </ul>
+            <span>Quiz-whiz Tous droits réservés &copy; 2025</span>
+        </div>
+
+    </footer>
+    <script src="index.js"></script>
+</body>
+
+</html>
