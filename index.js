@@ -9,7 +9,6 @@ hamMenu.addEventListener("click", () => {
     offScreenMenu.classList.toggle("active");
 })
 
-<<<<<<< HEAD
 
 // ------------------  Global Variables   ------------------
 
@@ -90,8 +89,6 @@ console.log("image de la question :", image);
 // query selector pour l'input pour récupérer le nom saisi avec .value
 // query selector pour l'onglet name sur la page de jeu
 //function quand le bouton est cliqué pour l'étape 2 et 3 
-=======
->>>>>>> origin/main
 
 // function récupérant le nom de l'utilisateur pour la page de jeu quand le bouton ok est cliqué
 //voir si j'y rajoute une fonction qui met le pseudo au format "Nom" (maj au début puis min pour le reste)
