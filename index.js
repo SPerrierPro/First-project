@@ -11,6 +11,7 @@ hamMenu.addEventListener("click", () => {
 
 
 // function récupérant le nom de l'utilisateur pour la page de jeu quand le bouton ok est cliqué
+//voir si j'y rajoute une fonction qui met le pseudo au format "Nom" (maj au début puis min pour le reste)
 
 const validationButton = document.querySelector(".validation");
 
