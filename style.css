@@ -1,6 +1,5 @@
-
-/* ---------------------    Global settings   ----------------------- */
-
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jua&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
     --main-color: #5D44AD;
@@ -9,29 +8,13 @@
     --body-color: #DAD4D4;
     --main-font-color: #fff;
     --purple-font-color: #5D44AD;
-    --bottom-page-color: #1F1149;
-}
-
-@font-face {
-    /* For H1 and H2 only */
-    font-family: "jua";
-    src: url("assets/fonts/Jua-Regular.ttf");
-}
-
-@font-face {
-    /* For Body and text only */
-    font-family: "inter";
-    src: url("assets/fonts/Inter-VariableFont_opsz,wght.ttf");
+    --yellow-color: #FFEE5B;
+    --title-font: ;
+    --text-font: ;
 }
 
 * {
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    --yellow-color: #FFEE5B;
-    --title-font: ;
-    --text-font: ;
-
 }
 
 
@@ -46,6 +29,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
 }
 
 .logo {
@@ -61,6 +45,7 @@ nav img {
     width: 40px;
     border-radius: 50%;
     outline: white solid 2px;
+
 }
 
 .navdesktop {
@@ -88,6 +73,7 @@ nav img {
     height: 30px;
     width: 30px;
     position: relative;
+
 }
 
 
@@ -104,6 +90,7 @@ nav img {
     left: 50%;
     transform: translate(-50%, -50%);
     transition: 0.5s ease;
+
 }
 
 .ham-menu span:nth-child(1) {
@@ -187,6 +174,7 @@ header {
     font-family: "jua";
     padding-left: 5px;
     padding-right: 5px;
+
 }
 
 header h2 {
@@ -206,6 +194,7 @@ header h2:hover {
     justify-content: center;
     flex-wrap: wrap;
     gap: 3px;
+
 }
 
 .categ-container {
@@ -224,6 +213,7 @@ header h2:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 .categ2 {
@@ -390,9 +380,24 @@ body article {
     border: none;
 }
 
-@media screen and (min-width: 500px) and (max-width: 992px) {
 
-@media screen and (min-width: 768px) and (max-width: 992px) {
+
+footer {
+    background-color: var(--secondary-color);
+    color: var(--main-font-color);
+}
+
+/* À AFFICHER AFIN DE REVENIR A LA PAGE D'ACCUEIL*/
+
+.homepage {
+    display: none;
+}
+
+.homepage-logo {
+    display: none;
+}
+
+@media screen and (min-width: 500px) and (max-width: 992px) {
 
     .bubbles {
         display: flex;
@@ -486,6 +491,7 @@ body article {
 
     }
 
+
 }
 
 @media screen and (min-width: 992px) {
@@ -513,7 +519,8 @@ body article {
         display: inline-block;
         width: 70px;
         outline: none;
-        margin-left: 100px;
+        margin-left: 180px;
+
     }
 
     .navdesktop {
@@ -534,7 +541,6 @@ body article {
         text-decoration: none;
         color: var(--body-color);
         font-size: 20px;
-        white-space: nowrap;
     }
 
     .navdesktop a:hover {
@@ -548,30 +554,32 @@ body article {
         width: 100%;
         justify-content: space-between;
         margin-right: 100px;
+
     }
 
     .logonav h1 {
         padding-left: 10px;
         font-size: 40px;
-        white-space: nowrap;
     }
 
     header {
         font-size: 15px;
         padding: 10px;
+
     }
 
     .bubbles {
         display: flex;
         justify-content: center;
-        white-space: nowrap;
+
     }
 
     .categ-container {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
-        gap: 3em;
+        gap: 60px;
+
     }
 
     .categ,
@@ -692,172 +700,9 @@ body article {
 
     }
 
-}
 
 
-/* ---------------------    Footer   ----------------------- */
 
 
-footer {
-    background-color: var(--secondary-color);
-    color: var(--main-font-color);
 
-    @media screen and (min-width: 992px) {
-        flex-direction: row;
-        justify-items: center;
-    }
-}
-
-.mainFooter {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-
-    @media screen and (min-width: 992px) {
-        flex-direction: row;
-        justify-content: space-between;
-        width: 70vw;
-        padding: 1rem;
-    }
-}
-
-.logoAndText {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-
-    @media screen and (min-width: 992px) {
-        width: 34%;
-    }
-}
-
-
-.footerLogo img {
-    width: 3.5rem;
-}
-
-.footerLogo h2 {
-    font-family: "jua";
-    font-size: 1rem;
-    transform: translate(0px, -45%)
-}
-
-.logoAndText p {
-    font-family: "Inter";
-    font-size: .7rem;
-    width: 70%;
-}
-
-.socialNetworks {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    list-style: none;
-    gap: 3rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-
-.socialNetworks img {
-    width: 1.5rem;
-}
-
-/* Contact class is hidden by default => only diplayed in desktop version*/
-.contact {
-    display: none;
-    font-family: "inter";
-
-    @media screen and (min-width: 992px) {
-        display: flex;
-        flex-direction: column;
-    }
-}
-
-.contact h2 {
-    font-size: 1rem;
-}
-
-.contact ul {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    margin-left: 1rem;
-    font-family: "inter";
-}
-
-.contact ul a {
-    text-decoration: none;
-    color: var(--main-font-color);
-    font-family: "inter";
-    font-size: .7rem;
-}
-
-/* Games class is hidden by default => only diplayed in desktop version*/
-.games {
-    display: none;
-    font-family: "inter";
-
-
-    @media screen and (min-width: 992px) {
-        display: flex;
-        flex-direction: column;
-        transform: translate(0px, -.45rem);
-    }
-}
-
-.games h2 {
-    font-size: 1rem;
-}
-
-.games ul {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    margin-left: 1rem;
-    font-family: "inter";
-}
-
-.games ul a {
-    text-decoration: none;
-    color: var(--main-font-color);
-    font-family: "inter";
-    font-size: .7rem;
-}
-
-/* Secondary footer class is hidden by default => only diplayed in desktop version*/
-.secFooter {
-    display: none;
-    width: 100%;
-    height: 2vh;
-
-    @media screen and (min-width: 992px) {
-        display: flex;
-        background-color: var(--bottom-page-color);
-        justify-content: space-between;
-        align-items: center;
-        font-family: "inter";
-        font-size: .6rem;
-        padding: .5rem;
-    }
-}
-
-.secFooter ul {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    gap: 3rem;
-    margin-left: .1rem;
-}
--
-
-.secFooter li a {
-    text-decoration: none;
-    color: var(--main-font-color);
-}
-
-.secFooter span {
-    margin-right: .1rem;
-    font-size: .7rem;
 }

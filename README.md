@@ -1,10 +1,10 @@
 # First-project
 
 Fonctions à prévoir dans le js : 
-- faire dérouler et se réenrouler le menu burger quand il est cliqué -> FAIT
--Récupérer le nom dans l'input quand le bouton ok est cliqué -> FAIT
+- faire dérouler et se réenrouler le menu bruger quand il est cliqué
+-Récupérer le nom dans l'input quand le bouton ok est cliqué
 -Lancer le quiz en changeant l'interface suite à ce clic
--Afficher le nom récupéré en haut du quiz -> Normalement fait mais à tester.
+-Afficher le nom récupéré en haut du quiz
 incrémenter le score en fonction des bonnes ou mauvaises réponses
 fonction pour le feedback visuel du bouton sélectionné pour la réponse (A, B, C ou D)
 -Si l'utilisateur clique sur une autre réponse, la première sélectionnée est déselectionnée automatiquement au profit de la nouvelle
