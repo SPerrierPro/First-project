@@ -7,7 +7,7 @@
         content="Jeu de quiz interactif, Whiz-Quiz est la référence des quiz en ligne pour petits et grands.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="/asset/images/quizz.ico">
+    <link rel="icon" type="image/x-icon" href="/assets/images/quizz.ico">
     <title>Quiz-Whiz | Jeu de quiz en ligne</title>
 </head>
 
@@ -52,7 +52,7 @@
                 </div>
             </div>
 
-            <img src="/assets/images/profile.jpeg" alt="Profile picture">
+            <img src="/assets/images/profile.jpeg" alt="Profile picture" />
         </section>
     </nav>
 
@@ -66,35 +66,35 @@
             <!-- CATEG-CONTAINER UTILISÉ AFIN DE GERER LES IMAGES EN PLUS EN DESKTOP-->
             <div class="categ-container">
                 <div class="categ">
-                    <img src="/assets/images/voyage.jpg" alt="voyage en avion">
+                    <img src="/assets/images/voyage.jpg" alt="voyage en avion" />
                     <h2><a href="">Quiz Voyages</a></h2>
                 </div>
 
                 <div class="categ">
-                    <img src="/assets/images/histoire.jpg" alt="livre d'histoire">
+                    <img src="/assets/images/histoire.jpg" alt="livre d'histoire" />
                     <h2><a href="">Quiz Histoire</a></h2>
                 </div>
 
 
                 <div class="categ">
-                    <img src="/assets/images/anime.jpg" alt="univers animé japonais">
+                    <img src="/assets/images/anime.jpg" alt="univers animé japonais" />
                     <h2><a href="">Quiz Anime</a></h2>
 
                 </div>
 
                 <div class="categ-container">
                     <div class="categ2">
-                        <img src="/assets/images/food.jpg" alt="Nourriture">
+                        <img src="/assets/images/food.jpg" alt="Nourriture" />
                         <h2><a href="">Quiz Food</a></h2>
                     </div>
 
                     <div class="categ2">
-                        <img src="/assets/images/culture.jpg" alt="Culture générale">
+                        <img src="/assets/images/culture.jpg" alt="Culture générale" />
                         <h2><a href="">Quiz Culture G</a></h2>
                     </div>
 
                     <div class="categ2">
-                        <img src="/assets/images/actu.jpg" alt="Actualité">
+                        <img src="/assets/images/actu.jpg" alt="Actualité" />
                         <h2><a href="">Quiz Actu</a></h2>
                     </div>
                 </div>
@@ -113,17 +113,18 @@
         d'autres dispositions vous paraissent plus évidentes ;)-->
         <article>
             <!--A organiser en flex column ?-->
-            <img alt="Logo Quiz-Whiz" src="/assets/images/quizz.png" class="homepage-logo homepage">
+            <img alt="Logo Quiz-Whiz" src="assets/images/quizz.png" class="homepage-logo homepage">
             <!--Les faire se toggle visible/invisible en fonction de la disposition de la page-->
-            <h2 class="game">Question 1/14</h2>
+            <h2 class="game" id="question">Question 1/14</h2>
             <div class="quiz-background"><!--= notre carré violet, column ?-->
-                <div class="game"> <!--Score + nom, row ?-->
+                <div class="game" id="player"> <!--Score + nom, row ?-->
                     <h3 id="user-name">Nom du joueur</h3>
                     <h3>Score : 0 points</h3>
                 </div>
                 <div>
                     <!--Column sur mobile, row-reverse sur  pc pour bien afficher l'image à droite?-->
-                    <img alt="Description de l'image affichée avec la question" src="#" class="game">
+                    <img alt="Description de l'image affichée avec la question" src="/assets/images/quizimg.jpg"
+                        id="quizimg" class="game">
                     <!--Src et alt à changer à chaque question pour bien correspondre-->
                     <div class="homepage name-selection">
                         <!-- Toggle avec le div suivant pour switch de la version connexion vers la version question. Column?-->
@@ -132,12 +133,14 @@
                     </div>
                     <div class="game">
                         <!--Version question, à organiser en grid de 3 row / 2 col, dont une rangée ou le titre prend les deux column de large?-->
-                        <h2 id="question">Où se situe l'Alabama ?</h2>+
-                        <button id="answerA"><span>A</span>En Afrique</button>
-                        <button id="answerB"><span>B</span>Aux Etats-Unis</button>
-                        <button id="answerC"><span>C</span>En Italie</button>
-                        <button id="answerD"><span>D</span>Dans la Seine</button>
+                        <h2 id="qstn question">Où se situe l'Alabama ?</h2>
 
+                        <div class="btn-container">
+                            <button class="btn" id="answerA"><span id="spn">A</span>En Afrique</button>
+                            <button class="btn" id="answerB"><span id="spn">B</span>Aux Etats-Unis</button>
+                            <button class="btn" id="answerC"><span id="spn">C</span>En Italie</button>
+                            <button class="btn" id="answerD"> <span id="spn">D</span>Dans la Seine</button>
+                        </div>
                         <p>Explications : </p>
                         <!--A voir si on les mets toujours après que le choix de réponse ait été validé, ou uniquement si mauvaise réponse ?-->
                     </div>
@@ -165,13 +168,14 @@
                     Testez vos connaissances, amusez-vous et défiez vos amis avec des milliers de questions passionantes
                     !
                 </p>
+
                 <ul class="socialNetworks">
                     <li><a href="#Facebook">
-                            <img src="assets/images/facebook.png" alt="Facebook">
+                            <img src="/assets/images/facebook.png" alt="Facebook">
                         </a>
                     </li>
                     <li><a href="#Instagram">
-                            <img src="assets/images/instagram.png" alt="Instagram">
+                            <img src="/assets/images/instagram.png" alt="Instagram">
                         </a>
                     </li>
                 </ul>
@@ -200,7 +204,7 @@
         <div class="secFooter">
             <ul>
                 <li><a href="#legalNotice">Mentions Légales</a></li>
-                <li><a href="#confidentialityPolicy">Confidentialité</a></li>
+                <li><a href="#confidentialityPolicy">Confidentialité></a></li>
                 <li><a href="#cgv">C.G.V</a></li>
             </ul>
             <span>Quiz-whiz Tous droits réservés &copy; 2025</span>
