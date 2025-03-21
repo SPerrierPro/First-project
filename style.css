@@ -1,4 +1,3 @@
-
 /* ---------------------    Global settings   ----------------------- */
 
 
@@ -436,11 +435,11 @@ footer {
 }
 
 
-.logo img {
+.footerLogo img {
     width: 3.5rem;
 }
 
-.logo h2 {
+.footerLogo h2 {
     font-family: "jua";
     font-size: 1rem;
     transform: translate(0px, -45%)
@@ -470,6 +469,7 @@ footer {
 .contact {
     display: none;
     font-family: "inter";
+    gap: .8rem;
 
     @media screen and (min-width: 992px) {
         display: flex;
@@ -486,6 +486,7 @@ footer {
     flex-direction: column;
     list-style: none;
     margin-left: 1rem;
+    gap: .5rem;
     font-family: "inter";
 }
 
@@ -500,7 +501,7 @@ footer {
 .games {
     display: none;
     font-family: "inter";
-
+    gap: .8rem;
 
     @media screen and (min-width: 992px) {
         display: flex;
@@ -518,7 +519,9 @@ footer {
     flex-direction: column;
     list-style: none;
     margin-left: 1rem;
+    gap: .5rem;
     font-family: "inter";
+
 }
 
 .games ul a {
