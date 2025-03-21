@@ -115,16 +115,17 @@
             <!--A organiser en flex column ?-->
             <img alt="Logo Quiz-Whiz" src="assets/images/quizz.png" class="homepage-logo" class="homepage">
             <!--Les faire se toggle visible/invisible en fonction de la disposition de la page-->
-            <h2 class="game" id="question">Question 1/14</h2>
+            <h2 class="game">Question 1/14</h2>
             <div class="quiz-background"><!--= notre carré violet, column ?-->
+
                 <div class="game" id="player"> <!--Score + nom, row ?-->
-                    <h3>Nom du joueur</h3>
+                    <h3 id="user-name">Nom du joueur</h3>
+                
                     <h3>Score : 0 points</h3>
                 </div>
                 <div>
                     <!--Column sur mobile, row-reverse sur  pc pour bien afficher l'image à droite?-->
-                    <img alt="Description de l'image affichée avec la question" src="quizimg.jpg" id="quizimg"
-                        class="game">
+                    <img alt="Description de l'image affichée avec la question" src="#" class="game">
                     <!--Src et alt à changer à chaque question pour bien correspondre-->
                     <div class="homepage name-selection">
                         <!-- Toggle avec le div suivant pour switch de la version connexion vers la version question. Column?-->
@@ -141,6 +142,7 @@
                             <button class="btn"><span id="spn">C</span>En Italie</button>
                             <button class="btn"> <span id="spn">D</span>Dans la Seine</button>
                         </div>
+
                         <p>Explications : </p>
                         <!--A voir si on les mets toujours après que le choix de réponse ait été validé, ou uniquement si mauvaise réponse ?-->
                     </div>
@@ -161,7 +163,9 @@
                 <!-- div Class logo => since we only have the wiz hat as logo, this box links the .png img and the text
             (it's better to create a .png logo version with title included). -->
                 <div class="logo">
-                    <img src="assets/images/quizz.png" alt="Logo de Whiz-Quiz">
+
+                    <img src="/assets/images/quizz.png" alt="Logo de Whiz-Quiz">
+
                     <h2>Quiz-Whiz</h2>
                 </div>
                 <p>Découvrez notre site de quiz intéractifs !
