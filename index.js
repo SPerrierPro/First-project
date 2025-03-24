@@ -34,13 +34,20 @@ const questions = [
         correctAnswer: "Madrid",
         image: "/assets/images/quizz.jpg",
     },
+    {
+        question: "Qu'est-ce qu'un nan ?",
+        answers: ["un pain indien", "une propriété de JavaScript"],
+        correctAnswer: "Un pain indien",
+        image: "/assets/images/quizz.jpg",
+    },
 
 ]
 
 
+
 // currentQuestion init: used to display the current question index => starts at 1 
 // and used in displayQuestion() as a parameter as an index (value -1) to access the current question object.
-let currentQuestion = 1;
+let currentQuestion = 4;
 
 // totalQuestions init: used to display the total number of questions
 let totalQuestions = questions.length;
@@ -52,37 +59,63 @@ let answers = [];
 let correctAnswer = "";
 let image = "";
 
+// variable question : used to DOM manipulation (injecting the question items into the DOM)
+const question = document.getElementById("question-container");
+
 
 
 // ------------------  Functions   ------------------
+
+// Function to create question answers buttons: loops through the questions object
+function createAnswerButtons(answer, i) {
+
+    // creating the answer buttons
+    const answerButton = document.createElement("button");
+    answerButton.id = `answer${i + 1}`;
+    answerButton.textContent = answer;
+
+
+    //Adding span element to the answer buttons
+    const answerSpan = document.createElement("span");
+    answerSpan.textContent = (i + 1);
+
+
+    question.appendChild(answerButton);
+    answerButton.appendChild(answerSpan);
+
+};
+
 
 // Function to display the current question items: loops through the questions object
 function displayQuestion(index) {
 
     const questionItem = questions[index - 1];
 
-    // injecting the question items into the DOM
+    // injecting the question items values into global variables
     questionTitle = questionItem.question;
     answers = questionItem.answers;
     correctAnswer = questionItem.correctAnswer;
     image = questionItem.image;
-
-
 }
 
 
 
 
+
+
+
+
+// ------------------  View  -----------------
+
+
+
+//To be moved into the Event Listener function
 displayQuestion(currentQuestion);
 
-
-console.log("titre de la question :", questionTitle);
-console.log("choix de reponses", answers);
-console.log("reponses de la question :", correctAnswer);
-console.log("image de la question :", image);
-
-
-
+// Injecting the question answers into the DOM using forEach loop:
+answers.forEach((answer, i) => {
+    createAnswerButtons(answer, i);
+})
 
 // ------------------  View   -----------------
 // query selector pour le bouton ok
@@ -113,4 +146,5 @@ validationButton.addEventListener("click", function () {
     userNameInGame.textContent = trimmedUserName;
     //  console.log(userNameSelector.value);
 });
+
 
