@@ -35,9 +35,9 @@ const questions = [
         image: "/assets/images/quizz.jpg",
     },
     {
-        question: "Qu'est-ce qu'un nan ?",
-        answers: ["un pain indien", "une propriété de JavaScript"],
-        correctAnswer: "Un pain indien",
+        question: "Est-ce qu'un nan est une propriété de JavaScript?",
+        answers: ["Vrai", "Faux"],
+        correctAnswer: "Faux",
         image: "/assets/images/quizz.jpg",
     },
 
@@ -60,7 +60,7 @@ let correctAnswer = "";
 let image = "";
 
 // variable question : used to DOM manipulation (injecting the question items into the DOM)
-const question = document.getElementById("question-container");
+const question = document.querySelector(".btn-container");
 
 
 
@@ -77,11 +77,12 @@ function createAnswerButtons(answer, i) {
 
     //Adding span element to the answer buttons
     const answerSpan = document.createElement("span");
+    answerSpan.id = "spn"
     answerSpan.textContent = (i + 1);
 
-
-    question.appendChild(answerButton);
     answerButton.appendChild(answerSpan);
+    question.appendChild(answerButton);
+
 
 };
 
@@ -99,23 +100,6 @@ function displayQuestion(index) {
 }
 
 
-
-
-
-
-
-
-// ------------------  View  -----------------
-
-
-
-//To be moved into the Event Listener function
-displayQuestion(currentQuestion);
-
-// Injecting the question answers into the DOM using forEach loop:
-answers.forEach((answer, i) => {
-    createAnswerButtons(answer, i);
-})
 
 // ------------------  View   -----------------
 // query selector pour le bouton ok
@@ -148,3 +132,10 @@ validationButton.addEventListener("click", function () {
 });
 
 
+//To be moved into the Event Listener function
+displayQuestion(currentQuestion);
+
+// Injecting the question answers into the DOM using forEach loop:
+answers.forEach((answer, i) => {
+    createAnswerButtons(answer, i);
+})
