@@ -10,6 +10,7 @@
     --yellow-color: #FFEE5B;
     --bottom-page-color: #1F1149;
     --toggleDisplay: none;
+    --toggleHomePage: flex;
 
 }
 
@@ -264,18 +265,19 @@ body article {
 
 /* AFFICHAGE DU QUIZ */
 
-/*
-.question {
+
+#question {
+    display: var(--toggleDisplay);
     position: absolute;
     z-index: 2;
     padding: 12px 90px;
-    top: 250px;
+    top: 18.5rem;
     background-color: var(--main-font-color);
     border-radius: 15px;
     font-size: 18px;
     color: var(--main-color);
 }
-    */
+
 
 #player {
     display: var(--toggleDisplay);
@@ -410,11 +412,11 @@ body article {
 /* À AFFICHER AFIN DE REVENIR A LA PAGE D'ACCUEIL*/
 
 .homepage {
-    display: none;
+    display: var(--toggleHomePage);
 }
 
 .homepage-logo {
-    display: none;
+    display: var(--toggleHomePage);
 }
 
 
@@ -667,18 +669,18 @@ body article {
         border: none;
     }
 
-    /*
-    .question {
+
+    #question {
         position: absolute;
         z-index: 2;
         padding: 10px 220px;
-        top: 280px;
+        top: 16.8rem;
         background-color: white;
         border-radius: 15px;
         font-size: 18px;
         color: var(--main-color);
     }
-*/
+
     #player {
         display: var(--toggleDisplay);
         flex-direction: row;
