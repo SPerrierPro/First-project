@@ -9,6 +9,8 @@
     --purple-font-color: #5D44AD;
     --yellow-color: #FFEE5B;
     --bottom-page-color: #1F1149;
+    --toggleDisplay: none;
+
 }
 
 @font-face {
@@ -262,7 +264,8 @@ body article {
 
 /* AFFICHAGE DU QUIZ */
 
-#question {
+/*
+.question {
     position: absolute;
     z-index: 2;
     padding: 12px 90px;
@@ -272,9 +275,10 @@ body article {
     font-size: 18px;
     color: var(--main-color);
 }
+    */
 
 #player {
-    display: flex;
+    display: var(--toggleDisplay);
     flex-direction: row;
     justify-content: space-between;
     margin: 30px 10px 0px 10px;
@@ -282,6 +286,7 @@ body article {
 }
 
 #quizimg {
+    display: var(--toggleDisplay);
     width: 250px;
     height: 100px;
     object-fit: cover;
@@ -290,18 +295,35 @@ body article {
     outline: var(--main-font-color) solid 1px;
 }
 
+#question-container {
+    display: var(--toggleDisplay);
+    flex-direction: column;
+    align-items: center;
+
+}
+
 #qstn {
-    margin: 10px 110px;
-    width: 100%;
-    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    font-size: 1rem;
+    z-index: 2;
+    padding: .6rem 1rem;
+    margin: 0;
+    background-color: white;
+    border-radius: 15px;
+    color: var(--main-color);
+
+
 }
 
 .btn-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
     margin: 15px;
-
+    padding: .3rem 1rem;
 }
 
 .game button {
@@ -314,21 +336,24 @@ body article {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: .3rem 1rem;
 
 }
 
-#spn {
+.spn {
     padding: 4px 8px;
-    text-align: left;
     background-color: var(--main-color);
     border-radius: 15px;
     color: var(--main-font-color);
-    margin-left: 0;
+    margin-left: 1rem;
 }
 
 .game p {
     background-color: var(--secondary-color);
-    margin: 10px;
+    width: 80%;
     border-radius: 10px;
     padding: 10px;
 
@@ -392,6 +417,7 @@ body article {
     display: none;
 }
 
+
 @media screen and (min-width: 768px) and (max-width: 992px) {
 
     .bubbles {
@@ -420,7 +446,6 @@ body article {
         top: 180px;
     }
 
-
     .name-selection h2 {
         padding: 20px;
     }
@@ -442,13 +467,12 @@ body article {
     }
 
     #player {
-        display: flex;
+        display: var(--toggleDisplay);
         flex-direction: row;
         justify-content: space-between;
         margin: 30px 30px 0px 30px;
         color: var(--yellow-color);
     }
-
 
     #quizimg {
         width: 350px;
@@ -459,9 +483,18 @@ body article {
     }
 
     #qstn {
-        margin: 10px 210px;
-        width: 100%;
-        font-size: 20px;
+        position: absolute;
+        width: fit-content;
+        bottom: 220px;
+        left: 80px;
+        font-size: 1.5rem;
+        z-index: 2;
+        padding: .6rem 1rem;
+        margin: 0;
+        background-color: white;
+        border-radius: 15px;
+        color: var(--main-color);
+
     }
 
     .game button {
@@ -469,7 +502,7 @@ body article {
         font-size: 20px;
     }
 
-    #spn {
+    .spn {
         padding: 6px 11px;
         text-align: left;
         background-color: var(--main-color);
@@ -570,7 +603,7 @@ body article {
         gap: 60px;
     }
 
-    .categ,
+
     .categ2 {
         display: flex;
         flex-direction: column;
@@ -625,7 +658,8 @@ body article {
         border: none;
     }
 
-    #question {
+    /*
+    .question {
         position: absolute;
         z-index: 2;
         padding: 10px 220px;
@@ -635,9 +669,9 @@ body article {
         font-size: 18px;
         color: var(--main-color);
     }
-
+*/
     #player {
-        display: flex;
+        display: var(--toggleDisplay);
         flex-direction: row;
         justify-content: space-between;
         margin: 30px 80px 0px 80px;
@@ -657,13 +691,22 @@ body article {
 
     #qstn {
         position: absolute;
+        width: fit-content;
         bottom: 220px;
         left: 80px;
-        font-size: 24px;
+        font-size: 1.5rem;
+        z-index: 2;
+        padding: .6rem 1rem;
+        margin: 0;
+        background-color: white;
+        border-radius: 15px;
+        color: var(--main-color);
+
     }
 
     .btn-container {
         margin: 150px 400px 30px 40px;
+        padding: .3rem 1rem;
     }
 
     .game button {
@@ -671,7 +714,7 @@ body article {
         font-size: 20px;
     }
 
-    #spn {
+    .spn {
         padding: 6px 11px;
         text-align: left;
         background-color: var(--main-color);

@@ -23,24 +23,31 @@ const questions = [
         image: "/assets/images/voyage.jpg",
     },
     {
-        question: "Quelle est la capitale de l'Italie'?",
+        question: "Quelle est la capitale de l'Italie?",
         answers: ["Marseille", "Rome", "Berlin", "Lisbonne"],
         correctAnswer: "Rome",
         image: "/assets/images/culture.jpg",
     },
     {
-        question: "Quelle est la capitale de l'Espagne'?",
+        question: "Quelle est la capitale de l'Espagne?",
         answers: ["Obiwan Kenobi", "Madrid", "Berlin", "Pau"],
         correctAnswer: "Madrid",
-        image: "/assets/images/quizz.jpg",
+        image: "/assets/images/actu.jpg",
+    },
+    {
+        question: "Un nan est une propriété de JavaScript?",
+        answers: ["Vrai", "Faux"],
+        correctAnswer: "Faux",
+        image: "/assets/images/food.jpg",
     },
 
 ]
 
 
+
 // currentQuestion init: used to display the current question index => starts at 1 
 // and used in displayQuestion() as a parameter as an index (value -1) to access the current question object.
-let currentQuestion = 1;
+let currentQuestion = 4;
 
 // totalQuestions init: used to display the total number of questions
 let totalQuestions = questions.length;
@@ -52,35 +59,51 @@ let answers = [];
 let correctAnswer = "";
 let image = "";
 
+// variable question : used to DOM manipulation (injecting the question items into the DOM)
+const question = document.querySelector(".btn-container");
+
 
 
 // ------------------  Functions   ------------------
+
+// Function to create question answers buttons: loops through the questions object
+function createAnswerButtons(answer, i) {
+
+    // creating the answer buttons
+    const answerButton = document.createElement("button");
+    answerButton.id = `answer${i + 1}`;
+    answerButton.textContent = answer;
+
+
+    //Adding span element to the answer buttons
+    const answerSpan = document.createElement("span");
+    answerSpan.classList = "spn"
+    answerSpan.textContent = (i + 1);
+
+    answerButton.appendChild(answerSpan);
+    question.appendChild(answerButton);
+
+};
+
 
 // Function to display the current question items: loops through the questions object
 function displayQuestion(index) {
 
     const questionItem = questions[index - 1];
 
-    // injecting the question items into the DOM
+    // injecting the question items values into global variables
     questionTitle = questionItem.question;
     answers = questionItem.answers;
     correctAnswer = questionItem.correctAnswer;
     image = questionItem.image;
 
+    // injectiing question title into the DOM
+    document.querySelector("#qstn").textContent = questionTitle;
+
+    // injectiing question image into the DOM
+    document.querySelector("#quizimg").src = image;
 
 }
-
-
-
-
-displayQuestion(currentQuestion);
-
-
-console.log("titre de la question :", questionTitle);
-console.log("choix de reponses", answers);
-console.log("reponses de la question :", correctAnswer);
-console.log("image de la question :", image);
-
 
 
 
@@ -100,6 +123,12 @@ validationButton.addEventListener("click", function () {
     const userNameInGame = document.querySelector("#user-name");
     const trimmedUserName = userNameSelector.value.trim();
 
+    //  /!\TEST /!\ Onclick --toggleDiplay value changes after player name selection with a small delay:
+    setTimeout(() => {
+        document.documentElement.style.setProperty("--toggleDisplay", "flex");
+    }, "2000");
+
+
     if (trimmedUserName.length === 0) {
         alert("Merci de saisir un nom pour commencer le quiz !");
         return
@@ -114,3 +143,11 @@ validationButton.addEventListener("click", function () {
     //  console.log(userNameSelector.value);
 });
 
+
+//To move into the Event Listener function
+displayQuestion(currentQuestion);
+
+// Injecting the question answers into the DOM using forEach loop:
+answers.forEach((answer, i) => {
+    createAnswerButtons(answer, i);
+});
