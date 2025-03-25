@@ -76,10 +76,10 @@ const questions = [
 
 // currentQuestion init: used to display the current question index => starts at 1 
 // and used in displayQuestion() as a parameter as an index (value -1) to access the current question object.
-let currentQuestion = 4;
+let currentQuestion = 1;
 
 // totalQuestions init: used to display the total number of questions
-let totalQuestions = questions.length;
+const totalQuestions = questions.length;
 
 //  variables containing the current Question values ==> ready to inject into the DOM elements.
 
@@ -95,7 +95,7 @@ const question = document.querySelector(".btn-container");
 
 // ------------------  Functions   ------------------
 
-// Function to create question answers buttons: loops through the questions object
+// Function to create question answers buttons:
 function createAnswerButtons(answer, i) {
 
     // creating the answer buttons
@@ -115,7 +115,7 @@ function createAnswerButtons(answer, i) {
 };
 
 
-// Function to display the current question items: loops through the questions object
+// Function to display the current question items:
 function displayQuestion(index) {
 
     const questionItem = questions[index - 1];
@@ -126,11 +126,19 @@ function displayQuestion(index) {
     correctAnswer = questionItem.correctAnswer;
     image = questionItem.image;
 
-    // injectiing question title into the DOM
+    // injecting question title into the DOM
     document.querySelector("#qstn").textContent = questionTitle;
 
-    // injectiing question image into the DOM
+    // injecting question image into the DOM
     document.querySelector("#quizimg").src = image;
+
+    // injecting question number into the DOM
+    document.querySelector("#question").textContent = `Question ${index}/${totalQuestions}`;
+
+    // Injecting the question answers into the DOM using forEach loop:
+    answers.forEach((answer, i) => {
+        createAnswerButtons(answer, i);
+    });
 
 }
 
@@ -146,17 +154,13 @@ function displayQuestion(index) {
 //voir si j'y rajoute une fonction qui met le pseudo au format "Nom" (maj au début puis min pour le reste)
 
 const validationButton = document.querySelector(".validation");
+const homepageName = document.querySelector(".name-selection")
+const homepageLogo = document.querySelector(".homepage-logo")
 
 validationButton.addEventListener("click", function () {
     const userNameSelector = document.querySelector("input");
     const userNameInGame = document.querySelector("#user-name");
     const trimmedUserName = userNameSelector.value.trim();
-
-    //  /!\TEST /!\ Onclick --toggleDiplay value changes after player name selection with a small delay:
-    setTimeout(() => {
-        document.documentElement.style.setProperty("--toggleDisplay", "flex");
-    }, "2000");
-
 
     if (trimmedUserName.length === 0) {
         alert("Merci de saisir un nom pour commencer le quiz !");
@@ -168,6 +172,17 @@ validationButton.addEventListener("click", function () {
         return
     }
 
+    //On User name validation: toggle home page elements display:
+    homepageLogo.style.setProperty("--toggleHomePage", "none")
+    homepageName.style.setProperty("--toggleHomePage", "none")
+
+
+
+    //On User name validation: toggle question elements with a small delay:
+    setTimeout(() => {
+        document.documentElement.style.setProperty("--toggleDisplay", "flex");
+    }, "800");
+
     userNameInGame.textContent = trimmedUserName;
     //  console.log(userNameSelector.value);
 });
@@ -176,7 +191,5 @@ validationButton.addEventListener("click", function () {
 //To move into the Event Listener function
 displayQuestion(currentQuestion);
 
-// Injecting the question answers into the DOM using forEach loop:
-answers.forEach((answer, i) => {
-    createAnswerButtons(answer, i);
-});
+
+
