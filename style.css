@@ -547,7 +547,6 @@ body article {
         width: 40px;
     }
 
-
     .off-screen-menu {
         display: none;
     }
@@ -592,8 +591,6 @@ body article {
         color: var(--button-color);
         transition: 0.5s;
     }
-
-   
 
     .logonav {
         display: flex;
@@ -655,7 +652,6 @@ body article {
         margin: 3rem auto 1rem auto;
     }
 
-
     .name-selection h2 {
         margin: auto 3%;
         text-align: center;
@@ -681,7 +677,6 @@ body article {
         box-shadow: 3px 5px 5px darkgrey;
         border: none;
     }
-
 
     #question {
         position: absolute;
@@ -725,7 +720,6 @@ body article {
         background-color: white;
         border-radius: 15px;
         color: var(--main-color);
-
     }
 
     .btn-container {
