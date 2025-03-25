@@ -463,9 +463,10 @@ body article {
     .validation {
         width: 70vw;
         height: 2rem;
-        padding: 20px;
+        padding: 20px auto 30px auto;
         box-shadow: 3px 5px 5px darkgrey;
         border: none;
+        text-align: center;
     }
 
     #player {
@@ -663,8 +664,7 @@ body article {
         height: 2rem;
         margin: 1rem auto 3rem auto;
         border-radius: 10px;
-        padding: 20px;
-        text-align: center;
+        padding: 20px auto 30px auto;
         box-shadow: 3px 5px 5px darkgrey;
         border: none;
     }
