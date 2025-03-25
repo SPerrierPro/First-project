@@ -441,8 +441,8 @@ body article {
         background-color: var(--main-color);
         color: var(--main-font-color);
         border-radius: 15px;
-        height: 350px;
         width: 75vw;
+        height: 45vh;
         box-shadow: 3px 5px 5px darkgrey;
     }
 
@@ -469,6 +469,7 @@ body article {
         box-shadow: 3px 5px 5px darkgrey;
         border: none;
         text-align: center;
+        margin-top: 4%;
     }
 
     #player {
@@ -491,8 +492,9 @@ body article {
         position: absolute;
         width: fit-content;
         bottom: 220px;
-        left: 80px;
-        font-size: 1.5rem;
+        left: 30%;
+        right: 30%;
+        font-size: 1.3rem;
         z-index: 2;
         padding: .6rem 1rem;
         margin: 0;
@@ -502,9 +504,15 @@ body article {
 
     }
 
+    .btn-container {
+        margin-top: 15%;
+        gap: 1rem;
+    }
+
     .game button {
         padding: 3px 20px 0px 3px;
-        font-size: 20px;
+        font-size: 1rem;
+        height: 3rem;
     }
 
     .spn {
@@ -517,9 +525,12 @@ body article {
         font-size: 20px;
     }
 
-    .quiz-background {
-        height: 380px;
+    .game p {
+        margin-top: 7%;
+        height: 2.5rem;
+        font-size: 0.8rem;
     }
+
 }
 
 @media screen and (min-width: 992px) {
@@ -535,7 +546,6 @@ body article {
     nav img {
         width: 40px;
     }
-
 
     .off-screen-menu {
         display: none;
@@ -581,8 +591,6 @@ body article {
         color: var(--button-color);
         transition: 0.5s;
     }
-
-   
 
     .logonav {
         display: flex;
@@ -644,7 +652,6 @@ body article {
         margin: 3rem auto 1rem auto;
     }
 
-
     .name-selection h2 {
         margin: auto 3%;
         text-align: center;
@@ -670,7 +677,6 @@ body article {
         box-shadow: 3px 5px 5px darkgrey;
         border: none;
     }
-
 
     #question {
         position: absolute;
@@ -714,7 +720,6 @@ body article {
         background-color: white;
         border-radius: 15px;
         color: var(--main-color);
-
     }
 
     .btn-container {
