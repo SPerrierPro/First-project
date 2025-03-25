@@ -55,7 +55,7 @@ nav h1 {
 }
 
 nav img {
-    width: 40px;
+    width: 22px;
     border-radius: 50%;
     outline: white solid 2px;
 }
@@ -524,7 +524,13 @@ body article {
         justify-content: space-around;
         align-items: center;
         padding-right: 100px;
+        height: 58px;
     }
+
+    nav img {
+        width: 40px;
+    }
+
 
     .off-screen-menu {
         display: none;
@@ -571,6 +577,8 @@ body article {
         transition: 0.5s;
     }
 
+   
+
     .logonav {
         display: flex;
         align-items: center;
@@ -588,6 +596,7 @@ body article {
     header {
         font-size: 15px;
         padding: 10px;
+        height: 170px;
     }
 
     .bubbles {
