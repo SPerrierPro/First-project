@@ -23,22 +23,22 @@ const questions = [
         image: "/assets/images/voyage.jpg",
     },
     {
-        question: "Quelle est la capitale de l'Italie'?",
+        question: "Quelle est la capitale de l'Italie?",
         answers: ["Marseille", "Rome", "Berlin", "Lisbonne"],
         correctAnswer: "Rome",
         image: "/assets/images/culture.jpg",
     },
     {
-        question: "Quelle est la capitale de l'Espagne'?",
+        question: "Quelle est la capitale de l'Espagne?",
         answers: ["Obiwan Kenobi", "Madrid", "Berlin", "Pau"],
         correctAnswer: "Madrid",
-        image: "/assets/images/quizz.jpg",
+        image: "/assets/images/actu.jpg",
     },
     {
-        question: "Est-ce qu'un nan est une propriété de JavaScript?",
+        question: "Un nan est une propriété de JavaScript?",
         answers: ["Vrai", "Faux"],
         correctAnswer: "Faux",
-        image: "/assets/images/quizz.jpg",
+        image: "/assets/images/food.jpg",
     },
 
 ]
@@ -77,12 +77,11 @@ function createAnswerButtons(answer, i) {
 
     //Adding span element to the answer buttons
     const answerSpan = document.createElement("span");
-    answerSpan.id = "spn"
+    answerSpan.classList = "spn"
     answerSpan.textContent = (i + 1);
 
     answerButton.appendChild(answerSpan);
     question.appendChild(answerButton);
-
 
 };
 
@@ -97,6 +96,13 @@ function displayQuestion(index) {
     answers = questionItem.answers;
     correctAnswer = questionItem.correctAnswer;
     image = questionItem.image;
+
+    // injectiing question title into the DOM
+    document.querySelector("#qstn").textContent = questionTitle;
+
+    // injectiing question image into the DOM
+    document.querySelector("#quizimg").src = image;
+
 }
 
 
@@ -117,6 +123,12 @@ validationButton.addEventListener("click", function () {
     const userNameInGame = document.querySelector("#user-name");
     const trimmedUserName = userNameSelector.value.trim();
 
+    //  /!\TEST /!\ Onclick --toggleDiplay value changes after player name selection with a small delay:
+    setTimeout(() => {
+        document.documentElement.style.setProperty("--toggleDisplay", "flex");
+    }, "2000");
+
+
     if (trimmedUserName.length === 0) {
         alert("Merci de saisir un nom pour commencer le quiz !");
         return
@@ -132,10 +144,10 @@ validationButton.addEventListener("click", function () {
 });
 
 
-//To be moved into the Event Listener function
+//To move into the Event Listener function
 displayQuestion(currentQuestion);
 
 // Injecting the question answers into the DOM using forEach loop:
 answers.forEach((answer, i) => {
     createAnswerButtons(answer, i);
-})
+});
