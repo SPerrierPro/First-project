@@ -271,11 +271,12 @@ body article {
     position: absolute;
     z-index: 2;
     padding: 12px 90px;
-    top: 18.5rem;
+    top: 14.5rem;
     background-color: var(--main-font-color);
     border-radius: 15px;
     font-size: 18px;
     color: var(--main-color);
+    filter: drop-shadow(1px 5px 10px darkslateblue);
 }
 
 
@@ -308,10 +309,10 @@ body article {
     display: flex;
     justify-content: center;
     width: 60%;
-    font-size: 1rem;
+    font-size: 0.9rem;
     z-index: 2;
     padding: .6rem 1rem;
-    margin: 0;
+    margin: 16px 0 0 0;
     background-color: white;
     border-radius: 15px;
     color: var(--main-color);
@@ -339,10 +340,10 @@ body article {
     justify-content: space-between;
     align-items: center;
     text-align: left;
-    font-size: 1rem;
+    font-size: 0.75rem;
     cursor: pointer;
     padding: .3rem 1rem;
-
+    height: 2rem;
 }
 
 .spn {
@@ -358,7 +359,8 @@ body article {
     width: 80%;
     border-radius: 10px;
     padding: 10px;
-
+    margin: 10px;
+    font-size: 0.7rem;
 }
 
 
