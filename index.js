@@ -17,30 +17,59 @@ hamMenu.addEventListener("click", () => {
 
 const questions = [
     {
-        question: "Quelle est la capitale de la France ?",
-        answers: ["Paris", "Londres", "Berlin", "Rome"],
-        correctAnswer: "Paris",
-        image: "/assets/images/voyage.jpg",
+        question: "Quel est cet animal ?",
+        answers: ["Un Diable de Tasmanie", "Un Pika", "Un Okapi", "Un Zébron"],
+        correctAnswer: "Un Okapi",
+        image: "./assets/images/quizanimaux/okapi.jpg",
     },
     {
-        question: "Quelle est la capitale de l'Italie?",
-        answers: ["Marseille", "Rome", "Berlin", "Lisbonne"],
-        correctAnswer: "Rome",
-        image: "/assets/images/culture.jpg",
+        question: "Quel est le nom du petit de la marmotte ?",
+        answers: ["Un Marmotton", "Un Marmotteau", "Un Marmottin", "Un Marmouttet"],
+        correctAnswer: "Un Marmotton",
+        image: "./assets/images/quizanimaux/marmotte.jpg",
     },
     {
-        question: "Quelle est la capitale de l'Espagne?",
-        answers: ["Obiwan Kenobi", "Madrid", "Berlin", "Pau"],
-        correctAnswer: "Madrid",
-        image: "/assets/images/actu.jpg",
+        question: "Lequel de ces animaux n'est pas un mammifère ?",
+        answers: ["Le requin", "L'ornithorynque", "La chauve-souris", "Le koala"],
+        correctAnswer: "Le requin",
+        image: "./assets/images/quizanimaux/panda-roux.jpg",
     },
     {
-        question: "Un nan est une propriété de JavaScript?",
+        question: "Une reine d'Egypte s'est fait tuer par un hippopotame ?",
         answers: ["Vrai", "Faux"],
-        correctAnswer: "Faux",
-        image: "/assets/images/food.jpg",
+        correctAnswer: "Vrai",
+        image: "./assets/images/quizanimaux/hippo.jpg",
     },
-
+    {
+        question: "Quel est le nom ridicule de ce poisson ?",
+        answers: ["La grosse poule de mer", "La patate du Pacifique", "Le marin pelé", "La carpe rectale"],
+        correctAnswer: "La grosse poule de mer",
+        image: "./assets/images/quizanimaux/lompe.jpg",
+    },
+    {
+        question: "Quel fait sur la fourmi est faux ?",
+        answers: ["Elle peut porter plusieurs fois son poids", "Elle peut retenir sa respiration ", "Elle fait deux siestes par jour", "Elle ne brule pas"],
+        correctAnswer: "Elle ne brule pas",
+        image: "./assets/images/quizanimaux/fourmi.jpg",
+    },
+    {
+        question: "Quelle est la couleur du lait d'hippopotame ?",
+        answers: ["Blanc", "Rose", "Bleuté", "Orange"],
+        correctAnswer: "Rose",
+        image: "./assets/images/quizanimaux/lait.jpg",
+    },
+    {
+        question: "La hyène est l'animal ayant la machoire la plus puissante ?",
+        answers: ["Vrai", "Faux"],
+        correctAnswer: "Vrai",
+        image: "./assets/images/quizanimaux/hyene.jpg",
+    },
+    {
+        question: "Quel est cet animal trop mignon ?",
+        answers: ["Un Quokka", "Une Musaraigne", "Un Castor", "Un Chien de Prairie"],
+        correctAnswer: "Un Quokka",
+        image: "./assets/images/quizanimaux/quokka.jpg",
+    }
 ]
 
 
