@@ -104,9 +104,8 @@ const question = document.querySelector(".btn-container");
 let selectedAnswer = "";
 let selectedAnswerId = "";
 
+//Score starts at 0
 let scorePts = 0;
-
-
 // ------------------  Functions   ------------------
 
 // Function to create question answers buttons:
@@ -157,20 +156,13 @@ function displayQuestion(index, callback) {
 };
 // Function to handle questions swap :
 function nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId) {
+    
+    
 
     if (selectedAnswer === correctAnswer) {
         // change the color of the correct answer to green:
         console.log("good");
         document.getElementById(`${selectedAnswerId}`).style.setProperty("background-color", "green");
-        setTimeout(() => {
-            if (currentQuestion < totalQuestions) {
-                currentQuestion += 1;
-                // Cleaning question display before displaying next question:
-                question.textContent = '';
-                // display next question:
-                displayQuestion(currentQuestion, createAnswerButtons);
-            };
-        }, "1000")
     };
 
     if (selectedAnswer !== correctAnswer) {
@@ -179,6 +171,13 @@ function nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId) {
         console.log("bad");
         document.getElementById(`${selectedAnswerId}`).style.setProperty("background-color", "red");
         //document.target.textContent(`${correctAnswer}`).style.setProperty("background-color", "green");
+    };
+
+    setTimeout(() => {
+        const explications = document.querySelector(".explications");
+        explications.textContent = questions[currentQuestion-1].explication;
+        explications.classList.toggle("explications");
+        
         setTimeout(() => {
             if (currentQuestion < totalQuestions) {
                 currentQuestion += 1;
@@ -186,23 +185,18 @@ function nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId) {
                 question.textContent = '';
                 // display next question:
                 displayQuestion(currentQuestion, createAnswerButtons);
+                explications.classList.toggle("explications");
             };
-        }, "1000")
-    };
+        }, "5000");
+    }, "1000"); 
 
     // next question:
-
-}
+};
 
 
 // ------------------  View   -----------------
-// query selector pour le bouton ok
-// query selector pour l'input pour récupérer le nom saisi avec .value
-// query selector pour l'onglet name sur la page de jeu
-//function quand le bouton est cliqué pour l'étape 2 et 3 
 
 // function récupérant le nom de l'utilisateur pour la page de jeu quand le bouton ok est cliqué
-//voir si j'y rajoute une fonction qui met le pseudo au format "Nom" (maj au début puis min pour le reste)
 
 const validationButton = document.querySelector(".validation");
 const homepageName = document.querySelector(".name-selection");
@@ -214,6 +208,7 @@ validationButton.addEventListener("click", function () {
     const userNameSelector = document.querySelector("input");
     const userNameInGame = document.querySelector("#user-name");
     const trimmedUserName = userNameSelector.value.trim();
+    const scoreCounter = document.querySelector("#score");
 
     if (trimmedUserName.length === 0) {
         alert("Merci de saisir un nom pour commencer le quiz !");
@@ -232,7 +227,12 @@ validationButton.addEventListener("click", function () {
     //On User name validation: toggle question elements with a small delay:
     setTimeout(() => {
         document.documentElement.style.setProperty("--toggleDisplay", "flex");
-    }, "800");
+    }, "500");
+
+    if (selectedAnswer === correctAnswer) {
+        scorePts += 10;
+        scoreCounter.textContent = `Score : ${scorePts} points `;
+    }
 
     userNameInGame.textContent = trimmedUserName;
     //  console.log(userNameSelector.value);
@@ -246,65 +246,14 @@ validationButton.addEventListener("click", function () {
     const btnContainer = document.querySelector(".btn-container");
 
     btnContainer.addEventListener("click", function (event) {
-
-        const scoreCounter = document.querySelector("#score");
         selectedAnswer = event.target.textContent.slice(0, -1);
         selectedAnswerId = event.target.id;
-
-        if (selectedAnswer === correctAnswer) {
-            event.target.style.background = "green";
-            scorePts += 10;
-        } else {
-            event.target.style.background = "red";
-            setTimeout(() => {
-                event.target.style.background = "";
-            }, 1000);
-        }
-
-        scoreCounter.textContent = `Score : ${scorePts} points`;
+        event.target.style.setProperty("box-shadow", "5px 5px 5px green");
         console.log(selectedAnswer, selectedAnswerId);
     });
 });
 
 displayQuestion(currentQuestion, createAnswerButtons);
-
-
-
-btnContainer.addEventListener("click", function (event) {
-    const selectedAnswer = event.target.textContent.slice(0, -1);
-    const scoreCounter = document.querySelector("#score");
-    if (selectedAnswer === correctAnswer) {
-        event.target.style.background = "green";
-        scorePts += 10;
-    } else {
-        event.target.style.background = "red";
-        setTimeout(() => {
-            event.target.style.background = "";
-        }, 800);
-    }
-
-    scoreCounter.textContent = `Score : ${scorePts} points`;
-});
-
-setTimeout(() => {
-    event.target.style.background = "";
-}, 2000);
-
-validationButton.addEventListener("click", function () {
-    setTimeout(() => {
-        nextQuestion();
-    }, "1000");
-});
-
-
-
-
-
-displayQuestion(currentQuestion);
-
-
-
-
 
 
 
