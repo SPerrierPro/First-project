@@ -106,6 +106,7 @@ let selectedAnswerId = "";
 
 //Score starts at 0
 let scorePts = 0;
+
 // ------------------  Functions   ------------------
 
 // Function to create question answers buttons:
@@ -156,8 +157,6 @@ function displayQuestion(index, callback) {
 };
 // Function to handle questions swap :
 function nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId) {
-    
-    
 
     if (selectedAnswer === correctAnswer) {
         // change the color of the correct answer to green:
@@ -177,7 +176,7 @@ function nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId) {
         const explications = document.querySelector(".explications");
         explications.textContent = questions[currentQuestion-1].explication;
         explications.classList.toggle("explications");
-        
+
         setTimeout(() => {
             if (currentQuestion < totalQuestions) {
                 currentQuestion += 1;
@@ -187,6 +186,7 @@ function nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId) {
                 displayQuestion(currentQuestion, createAnswerButtons);
                 explications.classList.toggle("explications");
             };
+
         }, "5000");
     }, "1000"); 
 
@@ -228,6 +228,7 @@ validationButton.addEventListener("click", function () {
     setTimeout(() => {
         document.documentElement.style.setProperty("--toggleDisplay", "flex");
     }, "500");
+
 
     if (selectedAnswer === correctAnswer) {
         scorePts += 10;
