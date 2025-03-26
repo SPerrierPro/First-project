@@ -103,6 +103,7 @@ const question = document.querySelector(".btn-container");
 // Question validation variables:
 let selectedAnswer = "";
 let selectedAnswerId = "";
+let correctAnswerId = "";
 
 // ------------------  Functions   ------------------
 
@@ -123,6 +124,10 @@ function createAnswerButtons(answer, i) {
     answerButton.appendChild(answerSpan);
     question.appendChild(answerButton);
 
+    // Picking the correctAnswerId:
+    if (answer === correctAnswer) {
+        correctAnswerId = `answer${i + 1}`;
+    }
 };
 
 
@@ -159,15 +164,7 @@ function nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId) {
         // change the color of the correct answer to green:
         console.log("good");
         document.getElementById(`${selectedAnswerId}`).style.setProperty("background-color", "green");
-        setTimeout(() => {
-            if (currentQuestion < totalQuestions) {
-                currentQuestion += 1;
-                // Cleaning question display before displaying next question:
-                question.textContent = '';
-                // display next question:
-                displayQuestion(currentQuestion, createAnswerButtons);
-            };
-        }, "1000")
+        console.log("points en plus");
     };
 
     if (selectedAnswer !== correctAnswer) {
@@ -175,19 +172,19 @@ function nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId) {
         // change the color of the wrong answer to red:
         console.log("bad");
         document.getElementById(`${selectedAnswerId}`).style.setProperty("background-color", "red");
-        //document.target.textContent(`${correctAnswer}`).style.setProperty("background-color", "green");
-        setTimeout(() => {
-            if (currentQuestion < totalQuestions) {
-                currentQuestion += 1;
-                // Cleaning question display before displaying next question:
-                question.textContent = '';
-                // display next question:
-                displayQuestion(currentQuestion, createAnswerButtons);
-            };
-        }, "1000")
+        document.getElementById(`${correctAnswerId}`).style.setProperty("background-color", "green");
     };
 
-    // next question:
+    setTimeout(() => {
+        if (currentQuestion < totalQuestions) {
+            currentQuestion += 1;
+            // Cleaning question display before displaying next question:
+            question.textContent = '';
+            // display next question:
+            displayQuestion(currentQuestion, createAnswerButtons);
+        };
+    }, "1000")
+
 
 }
 
@@ -242,6 +239,7 @@ validationButton.addEventListener("click", function () {
     // récupérer la valeur du choix de l'utilisateur
     const btnContainer = document.querySelector(".btn-container");
 
+
     btnContainer.addEventListener("click", function (event) {
         selectedAnswer = event.target.textContent.slice(0, -1);
         selectedAnswerId = event.target.id;
@@ -250,6 +248,8 @@ validationButton.addEventListener("click", function () {
     });
 });
 
+
+//First question display
 displayQuestion(currentQuestion, createAnswerButtons);
 
 
