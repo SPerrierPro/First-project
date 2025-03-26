@@ -197,7 +197,7 @@ validationButton.addEventListener("click", function () {
 });
 
 
-//To move into the Event Listener function
+//To move into the Event Listener function:
 displayQuestion(currentQuestion);
 
 
