@@ -7,7 +7,7 @@ const offScreenMenu = document.querySelector(".off-screen-menu");
 hamMenu.addEventListener("click", () => {
     hamMenu.classList.toggle("active");
     offScreenMenu.classList.toggle("active");
-})
+});
 
 
 // ------------------  Global Variables   ------------------
@@ -79,13 +79,13 @@ const questions = [
         image: "./assets/images/quizanimaux/quokka.jpg",
         explication: "Pensez à regarder des images de quokka les jours de pluie, cela redonne le sourire.",
     }
-]
+];
 
 
 
 // currentQuestion init: used to display the current question index => starts at 1 
 // and used in displayQuestion() as a parameter as an index (value -1) to access the current question object.
-let currentQuestion = 0;
+let currentQuestion = 1;
 
 // totalQuestions init: used to display the total number of questions
 const totalQuestions = questions.length;
@@ -100,7 +100,9 @@ let image = "";
 // variable question : used to DOM manipulation (injecting the question items into the DOM)
 const question = document.querySelector(".btn-container");
 
-
+// Question validation variables:
+let selectedAnswer = "";
+let selectedAnswerId = "";
 
 // ------------------  Functions   ------------------
 
@@ -115,7 +117,7 @@ function createAnswerButtons(answer, i) {
 
     //Adding span element to the answer buttons
     const answerSpan = document.createElement("span");
-    answerSpan.classList = "spn"
+    answerSpan.classList = "spn";
     answerSpan.textContent = (i + 1);
 
     answerButton.appendChild(answerSpan);
@@ -124,8 +126,8 @@ function createAnswerButtons(answer, i) {
 };
 
 
-// Function to display the current question items:
-function displayQuestion(index) {
+// Function to display the current question items: callback => createAnswerButtons
+function displayQuestion(index, callback) {
 
     const questionItem = questions[index - 1];
 
@@ -146,32 +148,59 @@ function displayQuestion(index) {
 
     // Injecting the question answers into the DOM using forEach loop:
     answers.forEach((answer, i) => {
-        createAnswerButtons(answer, i);
+        callback(answer, i);
     });
 
-}
-// Function to swap questions:
-function nextQuestion() {
+};
+// Function to handle questions swap :
+function nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId) {
+
+    if (selectedAnswer === correctAnswer) {
+        // change the color of the correct answer to green:
+        console.log("good");
+        document.getElementById(`${selectedAnswerId}`).style.setProperty("background-color", "green");
+        setTimeout(() => {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion += 1;
+                // Cleaning question display before displaying next question:
+                question.textContent = '';
+                // display next question:
+                displayQuestion(currentQuestion, createAnswerButtons);
+            };
+        }, "1000")
+    };
+
+    if (selectedAnswer !== correctAnswer) {
+        // change the color of the good answer to green:
+        // change the color of the wrong answer to red:
+        console.log("bad");
+        document.getElementById(`${selectedAnswerId}`).style.setProperty("background-color", "red");
+        //document.target.textContent(`${correctAnswer}`).style.setProperty("background-color", "green");
+        setTimeout(() => {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion += 1;
+                // Cleaning question display before displaying next question:
+                question.textContent = '';
+                // display next question:
+                displayQuestion(currentQuestion, createAnswerButtons);
+            };
+        }, "1000")
+    };
 
     // next question:
-    if (currentQuestion < totalQuestions) {
-        currentQuestion += 1;
 
-        // Cleaning question display before displaying next question:
-        question.textContent = '';
-
-        // display next question:
-        displayQuestion(currentQuestion);
-    }
 }
+
 
 // ------------------  View   -----------------
 
 // function récupérant le nom de l'utilisateur pour la page de jeu quand le bouton ok est cliqué
 
 const validationButton = document.querySelector(".validation");
-const homepageName = document.querySelector(".name-selection")
-const homepageLogo = document.querySelector(".homepage-logo")
+const homepageName = document.querySelector(".name-selection");
+const homepageLogo = document.querySelector(".homepage-logo");
+
+
 
 validationButton.addEventListener("click", function () {
     const userNameSelector = document.querySelector("input");
@@ -181,18 +210,16 @@ validationButton.addEventListener("click", function () {
     if (trimmedUserName.length === 0) {
         alert("Merci de saisir un nom pour commencer le quiz !");
         return
-    }
+    };
 
     if (trimmedUserName.length > 20) {
         alert("Merci de saisir un nom moins long pour commencer le quiz !");
         return
-    }
+    };
 
     //On User name validation: toggle home page elements display:
-    homepageLogo.style.setProperty("--toggleHomePage", "none")
-    homepageName.style.setProperty("--toggleHomePage", "none")
-
-
+    homepageLogo.style.setProperty("--toggleHomePage", "none");
+    homepageName.style.setProperty("--toggleHomePage", "none");
 
     //On User name validation: toggle question elements with a small delay:
     setTimeout(() => {
@@ -201,27 +228,27 @@ validationButton.addEventListener("click", function () {
 
     userNameInGame.textContent = trimmedUserName;
     //  console.log(userNameSelector.value);
-
-});
-
-// récupérer la valeur du choix de l'utilisateur
-const btnContainer = document.querySelector(".btn-container");
-
-btnContainer.addEventListener("click", function (event) {
-    const selectedAnswer = event.target.textContent.slice(0, -1);
-    event.target.style.setProperty("box-shadow", "5px 5px 5px green");
-    console.log(selectedAnswer);
-
-});
-validationButton.addEventListener("click", function () {
     setTimeout(() => {
-        nextQuestion();
-    }, "1000");
+        nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId);
+    }, "500");
+
+
+
+    // récupérer la valeur du choix de l'utilisateur
+    const btnContainer = document.querySelector(".btn-container");
+
+    btnContainer.addEventListener("click", function (event) {
+        selectedAnswer = event.target.textContent.slice(0, -1);
+        selectedAnswerId = event.target.id;
+        event.target.style.setProperty("box-shadow", "5px 5px 5px green");
+        console.log(selectedAnswer, selectedAnswerId);
+    });
 });
 
+displayQuestion(currentQuestion, createAnswerButtons);
 
 
-displayQuestion(currentQuestion);
+
 
 
 
