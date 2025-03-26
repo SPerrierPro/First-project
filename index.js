@@ -7,7 +7,7 @@ const offScreenMenu = document.querySelector(".off-screen-menu");
 hamMenu.addEventListener("click", () => {
     hamMenu.classList.toggle("active");
     offScreenMenu.classList.toggle("active");
-})
+});
 
 
 // ------------------  Global Variables   ------------------
@@ -21,56 +21,65 @@ const questions = [
         answers: ["Un Diable de Tasmanie", "Un Pika", "Un Okapi", "Un Zébron"],
         correctAnswer: "Un Okapi",
         image: "./assets/images/quizanimaux/okapi.jpg",
+        explication: "C'est un Okapi, un animal qui ne vit qu'au Congo.",
     },
     {
         question: "Quel est le nom du petit de la marmotte ?",
         answers: ["Un Marmotton", "Un Marmotteau", "Un Marmottin", "Un Marmouttet"],
         correctAnswer: "Un Marmotton",
         image: "./assets/images/quizanimaux/marmotte.jpg",
+        explication: "La femelle peut en avoir jusqu'à 7 d'un coup.",
     },
     {
         question: "Lequel de ces animaux n'est pas un mammifère ?",
         answers: ["Le requin", "L'ornithorynque", "La chauve-souris", "Le koala"],
         correctAnswer: "Le requin",
         image: "./assets/images/quizanimaux/panda-roux.jpg",
+        explication: "C'est le seul mammifère à pondre des oeufs avec l'echidné (Oui, Sonic pond).",
     },
     {
         question: "Une reine d'Egypte s'est fait tuer par un hippopotame ?",
         answers: ["Vrai", "Faux"],
         correctAnswer: "Vrai",
         image: "./assets/images/quizanimaux/hippo.jpg",
+        explication: "Assez insolite pour rentrer dans l'histoire.",
     },
     {
         question: "Quel est le nom ridicule de ce poisson ?",
         answers: ["La grosse poule de mer", "La patate du Pacifique", "Le marin pelé", "La carpe rectale"],
         correctAnswer: "La grosse poule de mer",
         image: "./assets/images/quizanimaux/lompe.jpg",
+        explication: "Son nom de base est la lompe, mais c'est bien moins drôle.",
     },
     {
         question: "Quel fait sur la fourmi est faux ?",
         answers: ["Elle peut porter plusieurs fois son poids", "Elle peut retenir sa respiration ", "Elle fait deux siestes par jour", "Elle ne brule pas"],
         correctAnswer: "Elle ne brule pas",
         image: "./assets/images/quizanimaux/fourmi.jpg",
+        explication: "Cet animal est malgré tout vraiment prêt à tout pour survivre.",
     },
     {
         question: "Quelle est la couleur du lait d'hippopotame ?",
         answers: ["Blanc", "Rose", "Bleuté", "Orange"],
-        correctAnswer: "Rose",
+        correctAnswer: "Blanc",
         image: "./assets/images/quizanimaux/lait.jpg",
+        explication: "Un mythe veut qu'il soit rose, mais cela a depuis été réfuté.",
     },
     {
         question: "La hyène est l'animal ayant la machoire la plus puissante ?",
         answers: ["Vrai", "Faux"],
         correctAnswer: "Vrai",
         image: "./assets/images/quizanimaux/hyene.jpg",
+        explication: "Elle tient largement tête à un lion dans un combat.",
     },
     {
         question: "Quel est cet animal trop mignon ?",
         answers: ["Un Quokka", "Une Musaraigne", "Un Castor", "Un Chien de Prairie"],
         correctAnswer: "Un Quokka",
         image: "./assets/images/quizanimaux/quokka.jpg",
+        explication: "Pensez à regarder des images de quokka les jours de pluie, cela redonne le sourire.",
     }
-]
+];
 
 
 
@@ -91,6 +100,11 @@ let image = "";
 // variable question : used to DOM manipulation (injecting the question items into the DOM)
 const question = document.querySelector(".btn-container");
 
+// Question validation variables:
+let selectedAnswer = "";
+let selectedAnswerId = "";
+
+let scorePts = 0;
 
 
 // ------------------  Functions   ------------------
@@ -106,7 +120,7 @@ function createAnswerButtons(answer, i) {
 
     //Adding span element to the answer buttons
     const answerSpan = document.createElement("span");
-    answerSpan.classList = "spn"
+    answerSpan.classList = "spn";
     answerSpan.textContent = (i + 1);
 
     answerButton.appendChild(answerSpan);
@@ -115,8 +129,8 @@ function createAnswerButtons(answer, i) {
 };
 
 
-// Function to display the current question items:
-function displayQuestion(index) {
+// Function to display the current question items: callback => createAnswerButtons
+function displayQuestion(index, callback) {
 
     const questionItem = questions[index - 1];
 
@@ -137,11 +151,48 @@ function displayQuestion(index) {
 
     // Injecting the question answers into the DOM using forEach loop:
     answers.forEach((answer, i) => {
-        createAnswerButtons(answer, i);
+        callback(answer, i);
     });
 
-}
+};
+// Function to handle questions swap :
+function nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId) {
 
+    if (selectedAnswer === correctAnswer) {
+        // change the color of the correct answer to green:
+        console.log("good");
+        document.getElementById(`${selectedAnswerId}`).style.setProperty("background-color", "green");
+        setTimeout(() => {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion += 1;
+                // Cleaning question display before displaying next question:
+                question.textContent = '';
+                // display next question:
+                displayQuestion(currentQuestion, createAnswerButtons);
+            };
+        }, "1000")
+    };
+
+    if (selectedAnswer !== correctAnswer) {
+        // change the color of the good answer to green:
+        // change the color of the wrong answer to red:
+        console.log("bad");
+        document.getElementById(`${selectedAnswerId}`).style.setProperty("background-color", "red");
+        //document.target.textContent(`${correctAnswer}`).style.setProperty("background-color", "green");
+        setTimeout(() => {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion += 1;
+                // Cleaning question display before displaying next question:
+                question.textContent = '';
+                // display next question:
+                displayQuestion(currentQuestion, createAnswerButtons);
+            };
+        }, "1000")
+    };
+
+    // next question:
+
+}
 
 
 // ------------------  View   -----------------
@@ -154,8 +205,10 @@ function displayQuestion(index) {
 //voir si j'y rajoute une fonction qui met le pseudo au format "Nom" (maj au début puis min pour le reste)
 
 const validationButton = document.querySelector(".validation");
-const homepageName = document.querySelector(".name-selection")
-const homepageLogo = document.querySelector(".homepage-logo")
+const homepageName = document.querySelector(".name-selection");
+const homepageLogo = document.querySelector(".homepage-logo");
+
+
 
 validationButton.addEventListener("click", function () {
     const userNameSelector = document.querySelector("input");
@@ -165,18 +218,16 @@ validationButton.addEventListener("click", function () {
     if (trimmedUserName.length === 0) {
         alert("Merci de saisir un nom pour commencer le quiz !");
         return
-    }
+    };
 
     if (trimmedUserName.length > 20) {
         alert("Merci de saisir un nom moins long pour commencer le quiz !");
         return
-    }
+    };
 
     //On User name validation: toggle home page elements display:
-    homepageLogo.style.setProperty("--toggleHomePage", "none")
-    homepageName.style.setProperty("--toggleHomePage", "none")
-
-
+    homepageLogo.style.setProperty("--toggleHomePage", "none");
+    homepageName.style.setProperty("--toggleHomePage", "none");
 
     //On User name validation: toggle question elements with a small delay:
     setTimeout(() => {
@@ -185,11 +236,78 @@ validationButton.addEventListener("click", function () {
 
     userNameInGame.textContent = trimmedUserName;
     //  console.log(userNameSelector.value);
+    setTimeout(() => {
+        nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId);
+    }, "500");
+
+
+
+    // récupérer la valeur du choix de l'utilisateur
+    const btnContainer = document.querySelector(".btn-container");
+
+    btnContainer.addEventListener("click", function (event) {
+
+        const scoreCounter = document.querySelector("#score");
+        selectedAnswer = event.target.textContent.slice(0, -1);
+        selectedAnswerId = event.target.id;
+
+        if (selectedAnswer === correctAnswer) {
+            event.target.style.background = "green";
+            scorePts += 10;
+        } else {
+            event.target.style.background = "red";
+            setTimeout(() => {
+                event.target.style.background = "";
+            }, 1000);
+        }
+
+        scoreCounter.textContent = `Score : ${scorePts} points`;
+        console.log(selectedAnswer, selectedAnswerId);
+    });
+});
+
+displayQuestion(currentQuestion, createAnswerButtons);
+
+
+
+btnContainer.addEventListener("click", function (event) {
+    const selectedAnswer = event.target.textContent.slice(0, -1);
+    const scoreCounter = document.querySelector("#score");
+    if (selectedAnswer === correctAnswer) {
+        event.target.style.background = "green";
+        scorePts += 10;
+    } else {
+        event.target.style.background = "red";
+        setTimeout(() => {
+            event.target.style.background = "";
+        }, 800);
+    }
+
+    scoreCounter.textContent = `Score : ${scorePts} points`;
+});
+
+setTimeout(() => {
+    event.target.style.background = "";
+}, 2000);
+
+validationButton.addEventListener("click", function () {
+    setTimeout(() => {
+        nextQuestion();
+    }, "1000");
 });
 
 
-//To move into the Event Listener function
+
+
+
 displayQuestion(currentQuestion);
+
+
+
+
+
+
+
 
 
 
