@@ -164,7 +164,9 @@ function nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId) {
         // change the color of the correct answer to green:
         console.log("good");
         document.getElementById(`${selectedAnswerId}`).style.setProperty("background-color", "green");
+
         console.log("points en plus");
+
     };
 
     if (selectedAnswer !== correctAnswer) {
@@ -172,6 +174,7 @@ function nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId) {
         // change the color of the wrong answer to red:
         console.log("bad");
         document.getElementById(`${selectedAnswerId}`).style.setProperty("background-color", "red");
+
         document.getElementById(`${correctAnswerId}`).style.setProperty("background-color", "green");
     };
 
@@ -186,17 +189,30 @@ function nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId) {
     }, "1000")
 
 
-}
+};
+
+setTimeout(() => {
+    const explications = document.querySelector(".explications");
+    explications.textContent = questions[currentQuestion - 1].explication;
+    explications.classList.toggle("explications");
+    setTimeout(() => {
+        if (currentQuestion < totalQuestions) {
+            currentQuestion += 1;
+            // Cleaning question display before displaying next question:
+            question.textContent = '';
+            // display next question:
+            displayQuestion(currentQuestion, createAnswerButtons);
+            explications.classList.toggle("explications");
+        };
+    }, "5000")
+}, "1000")
+
+
 
 
 // ------------------  View   -----------------
-// query selector pour le bouton ok
-// query selector pour l'input pour récupérer le nom saisi avec .value
-// query selector pour l'onglet name sur la page de jeu
-//function quand le bouton est cliqué pour l'étape 2 et 3 
 
 // function récupérant le nom de l'utilisateur pour la page de jeu quand le bouton ok est cliqué
-//voir si j'y rajoute une fonction qui met le pseudo au format "Nom" (maj au début puis min pour le reste)
 
 const validationButton = document.querySelector(".validation");
 const homepageName = document.querySelector(".name-selection");
@@ -226,7 +242,7 @@ validationButton.addEventListener("click", function () {
     //On User name validation: toggle question elements with a small delay:
     setTimeout(() => {
         document.documentElement.style.setProperty("--toggleDisplay", "flex");
-    }, "800");
+    }, "500");
 
     userNameInGame.textContent = trimmedUserName;
     //  console.log(userNameSelector.value);

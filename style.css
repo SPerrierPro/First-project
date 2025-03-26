@@ -363,6 +363,9 @@ body article {
     font-size: 0.7rem;
 }
 
+.explications {
+    display: none;
+}
 
 /* Début CSS pour la homepage*/
 /* Rajouter dans le * la line height de 1.5*/
