@@ -76,7 +76,7 @@ const questions = [
 
 // currentQuestion init: used to display the current question index => starts at 1 
 // and used in displayQuestion() as a parameter as an index (value -1) to access the current question object.
-let currentQuestion = 1;
+let currentQuestion = 0;
 
 // totalQuestions init: used to display the total number of questions
 const totalQuestions = questions.length;
@@ -141,8 +141,20 @@ function displayQuestion(index) {
     });
 
 }
+// Function to swap questions:
+function nextQuestion() {
 
+    // next question:
+    if (currentQuestion < totalQuestions) {
+        currentQuestion += 1;
 
+        // Cleaning question display before displaying next question:
+        question.textContent = '';
+
+        // display next question:
+        displayQuestion(currentQuestion);
+    }
+}
 
 // ------------------  View   -----------------
 // query selector pour le bouton ok
@@ -185,10 +197,26 @@ validationButton.addEventListener("click", function () {
 
     userNameInGame.textContent = trimmedUserName;
     //  console.log(userNameSelector.value);
+
+});
+
+// récupérer la valeur du choix de l'utilisateur
+const btnContainer = document.querySelector(".btn-container");
+
+btnContainer.addEventListener("click", function (event) {
+    const selectedAnswer = event.target.textContent.slice(0, -1);
+    event.target.style.setProperty("box-shadow", "5px 5px 5px green");
+    console.log(selectedAnswer);
+
+});
+validationButton.addEventListener("click", function () {
+    setTimeout(() => {
+        nextQuestion();
+    }, "1000");
 });
 
 
-//To move into the Event Listener function
+
 displayQuestion(currentQuestion);
 
 
