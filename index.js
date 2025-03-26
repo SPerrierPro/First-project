@@ -162,32 +162,15 @@ function nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId) {
 
     if (selectedAnswer === correctAnswer) {
         // change the color of the correct answer to green:
-        console.log("good");
         document.getElementById(`${selectedAnswerId}`).style.setProperty("background-color", "green");
-
-        console.log("points en plus");
-
     };
 
     if (selectedAnswer !== correctAnswer) {
         // change the color of the good answer to green:
         // change the color of the wrong answer to red:
-        console.log("bad");
         document.getElementById(`${selectedAnswerId}`).style.setProperty("background-color", "red");
-
         document.getElementById(`${correctAnswerId}`).style.setProperty("background-color", "green");
     };
-
-    setTimeout(() => {
-        if (currentQuestion < totalQuestions) {
-            currentQuestion += 1;
-            // Cleaning question display before displaying next question:
-            question.textContent = '';
-            // display next question:
-            displayQuestion(currentQuestion, createAnswerButtons);
-        };
-    }, "1000")
-
 
 };
 
@@ -201,10 +184,11 @@ setTimeout(() => {
             // Cleaning question display before displaying next question:
             question.textContent = '';
             // display next question:
-            displayQuestion(currentQuestion, createAnswerButtons);
             explications.classList.toggle("explications");
+            displayQuestion(currentQuestion, createAnswerButtons);
+
         };
-    }, "5000")
+    }, "2000")
 }, "1000")
 
 
