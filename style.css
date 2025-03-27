@@ -13,6 +13,7 @@
     --redShadowBorderColor: #710627;
     --toggleDisplay: none;
     --toggleHomePage: flex;
+    --togglescorePage: none;
 
 }
 
@@ -300,6 +301,14 @@ body article {
     border-radius: 10px;
     outline: var(--main-font-color) solid 1px;
 }
+
+.scorePage {
+    display: var(--togglescorePage);
+    margin: 150px 80px;
+    text-align: center;
+  
+}
+
 
 #question-container {
     display: var(--toggleDisplay);
@@ -669,6 +678,11 @@ footer {
         font-size: 0.9rem;
     }
 
+    .scorePage {
+        margin-left: 260px;
+      
+    }
+
 }
 
 @media screen and (min-width: 992px) {
@@ -930,6 +944,11 @@ footer {
         font-family: "inter";
         font-size: .6rem;
         padding: .5rem;
+    }
+
+    .scorePage {
+        margin-left: 600px;
+      
     }
 
 }

@@ -191,7 +191,13 @@ function nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId) {
             };
         }, "5000")
     }, "800")
-    // next question:
+
+    if (currentQuestion === totalQuestions) {
+        setTimeout(() => {
+            alert(`Quiz terminé ! Votre score final est de ${scorePts} points !`);
+            goHome();
+        }, 1000);
+    }
 };
 
 // ------------------  View   -----------------
@@ -273,7 +279,19 @@ validationButton.addEventListener("click", function () {
 //First question display
 displayQuestion(currentQuestion, createAnswerButtons);
 
+//score page
+function goHome() {
+    const scorePage = document.querySelector(".scorePage");
+    const scoreDisplay = document.querySelector("#final-score");
 
+    homepageLogo.style.setProperty("--toggleHomePage", "flex");
+    scorePage.style.setProperty("--togglescorePage", "flex");
+    document.documentElement.style.setProperty("--toggleDisplay", "none");
+
+    scoreDisplay.textContent = `${scorePts}`;
+    console.log(`${scorePts}`);
+
+}
 
 
 
