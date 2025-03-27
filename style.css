@@ -661,7 +661,7 @@ footer {
     .game p {
         margin-top: 7%;
         height: 2.5rem;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 
 }
@@ -878,6 +878,7 @@ footer {
 
     .game p {
         width: 70%;
+        font-size: 1.1rem;
     }
 
     .validation {
