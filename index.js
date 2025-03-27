@@ -35,7 +35,7 @@ const questions = [
         answers: ["Le requin", "L'ornithorynque", "La chauve-souris", "Le koala"],
         correctAnswer: "Le requin",
         image: "./assets/images/quizanimaux/panda-roux.jpg",
-        explication: "C'est le seul mammifère à pondre des oeufs avec l'echidné. Oui, Sonic pond.",
+        explication: "L'ornithorynque est le seul mammifère à pondre des oeufs avec l'echidné. Oui, Sonic pond.",
     },
     {
         question: "Une reine d'Egypte s'est fait tuer par un hippopotame ?",
@@ -80,8 +80,6 @@ const questions = [
         explication: "Pensez à regarder des images de quokka les jours de pluie.",
     }
 ];
-
-
 
 // currentQuestion init: used to display the current question index => starts at 1 
 // and used in displayQuestion() as a parameter as an index (value -1) to access the current question object.
@@ -189,8 +187,8 @@ function nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId) {
                 explications.classList.toggle("explications");
                 displayQuestion(currentQuestion, createAnswerButtons);
             };
-        }, "5000")
-    }, "800")
+        }, "4200")
+    }, "400")
     // next question:
 };
 
@@ -269,12 +267,5 @@ validationButton.addEventListener("click", function () {
     });
 });
 
-
 //First question display
 displayQuestion(currentQuestion, createAnswerButtons);
-
-
-
-
-
-
