@@ -35,7 +35,7 @@ const questions = [
         answers: ["Le requin", "L'ornithorynque", "La chauve-souris", "Le koala"],
         correctAnswer: "Le requin",
         image: "./assets/images/quizanimaux/panda-roux.jpg",
-        explication: "C'est le seul mammifère à pondre des oeufs avec l'echidné (Oui, Sonic pond).",
+        explication: "C'est le seul mammifère à pondre des oeufs avec l'echidné. Oui, Sonic pond.",
     },
     {
         question: "Une reine d'Egypte s'est fait tuer par un hippopotame ?",
@@ -77,7 +77,7 @@ const questions = [
         answers: ["Un Quokka", "Une Musaraigne", "Un Castor", "Un Chien de Prairie"],
         correctAnswer: "Un Quokka",
         image: "./assets/images/quizanimaux/quokka.jpg",
-        explication: "Pensez à regarder des images de quokka les jours de pluie, cela redonne le sourire.",
+        explication: "Pensez à regarder des images de quokka les jours de pluie.",
     }
 ];
 
@@ -104,6 +104,9 @@ const question = document.querySelector(".btn-container");
 let selectedAnswer = "";
 let selectedAnswerId = "";
 let correctAnswerId = "";
+
+//Score starts at 0
+let scorePts = 0;
 
 // ------------------  Functions   ------------------
 
@@ -176,6 +179,7 @@ function nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId) {
         const explications = document.querySelector(".explications");
         explications.textContent = questions[currentQuestion - 1].explication;
         explications.classList.toggle("explications");
+
         setTimeout(() => {
             if (currentQuestion < totalQuestions) {
                 currentQuestion += 1;
@@ -185,8 +189,9 @@ function nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId) {
                 explications.classList.toggle("explications");
                 displayQuestion(currentQuestion, createAnswerButtons);
             };
-        }, "5000");
-    }, "1000");
+        }, "5000")
+    }, "800")
+    // next question:
 };
 
 // ------------------  View   -----------------
@@ -202,6 +207,7 @@ validationButton.addEventListener("click", function () {
     const userNameSelector = document.querySelector("input");
     const userNameInGame = document.querySelector("#user-name");
     const trimmedUserName = userNameSelector.value.trim();
+    const scoreCounter = document.querySelector("#score");
 
     // Button Click animation:
     setTimeout(() => {
@@ -230,6 +236,12 @@ validationButton.addEventListener("click", function () {
     setTimeout(() => {
         document.documentElement.style.setProperty("--toggleDisplay", "flex");
     }, "500");
+
+
+    if (selectedAnswer === correctAnswer) {
+        scorePts += 10;
+        scoreCounter.textContent = `Score : ${scorePts} points `;
+    }
 
     userNameInGame.textContent = trimmedUserName;
     //  console.log(userNameSelector.value);
@@ -260,7 +272,6 @@ validationButton.addEventListener("click", function () {
 
 //First question display
 displayQuestion(currentQuestion, createAnswerButtons);
-
 
 
 
