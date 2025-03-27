@@ -598,7 +598,7 @@ footer {
     .validation {
         width: 70vw;
         height: 2rem;
-        padding: 10px 0 20px 0;
+        padding: 20px auto 30px auto;
         box-shadow: 3px 5px 5px darkgrey;
         border: none;
         text-align: center;
@@ -806,7 +806,7 @@ footer {
         height: 2rem;
         margin: 1rem auto 3rem auto;
         border-radius: 10px;
-        padding: 10px 0 20px 0;
+        padding: 20px auto 30px auto;
         box-shadow: 3px 5px 5px darkgrey;
         border: none;
     }
@@ -879,6 +879,11 @@ footer {
     .game p {
         width: 70%;
         font-size: 1.1rem;
+
+    }
+    .validation {
+        margin-top: 2.2rem;
+
     }
 
     .validation {

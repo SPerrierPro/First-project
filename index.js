@@ -104,6 +104,9 @@ const question = document.querySelector(".btn-container");
 let selectedAnswer = "";
 let selectedAnswerId = "";
 
+//Score starts at 0
+let scorePts = 0;
+
 // ------------------  Functions   ------------------
 
 // Function to create question answers buttons:
@@ -173,6 +176,7 @@ function nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId) {
         const explications = document.querySelector(".explications");
         explications.textContent = questions[currentQuestion-1].explication;
         explications.classList.toggle("explications");
+
         setTimeout(() => {
             if (currentQuestion < totalQuestions) {
                 currentQuestion += 1;
@@ -186,8 +190,7 @@ function nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId) {
     }, "800") 
 
     // next question:
-}
-
+};
 
 // ------------------  View   -----------------
 
@@ -203,6 +206,7 @@ validationButton.addEventListener("click", function () {
     const userNameSelector = document.querySelector("input");
     const userNameInGame = document.querySelector("#user-name");
     const trimmedUserName = userNameSelector.value.trim();
+    const scoreCounter = document.querySelector("#score");
 
     if (trimmedUserName.length === 0) {
         alert("Merci de saisir un nom pour commencer le quiz !");
@@ -222,6 +226,12 @@ validationButton.addEventListener("click", function () {
     setTimeout(() => {
         document.documentElement.style.setProperty("--toggleDisplay", "flex");
     }, "500");
+
+
+    if (selectedAnswer === correctAnswer) {
+        scorePts += 10;
+        scoreCounter.textContent = `Score : ${scorePts} points `;
+    }
 
     userNameInGame.textContent = trimmedUserName;
     //  console.log(userNameSelector.value);
