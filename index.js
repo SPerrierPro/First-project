@@ -35,7 +35,7 @@ const questions = [
         answers: ["Le requin", "L'ornithorynque", "La chauve-souris", "Le koala"],
         correctAnswer: "Le requin",
         image: "./assets/images/quizanimaux/panda-roux.jpg",
-        explication: "C'est le seul mammifère à pondre des oeufs avec l'echidné (Oui, Sonic pond).",
+        explication: "C'est le seul mammifère à pondre des oeufs avec l'echidné. Oui, Sonic pond.",
     },
     {
         question: "Une reine d'Egypte s'est fait tuer par un hippopotame ?",
@@ -77,7 +77,7 @@ const questions = [
         answers: ["Un Quokka", "Une Musaraigne", "Un Castor", "Un Chien de Prairie"],
         correctAnswer: "Un Quokka",
         image: "./assets/images/quizanimaux/quokka.jpg",
-        explication: "Pensez à regarder des images de quokka les jours de pluie, cela redonne le sourire.",
+        explication: "Pensez à regarder des images de quokka les jours de pluie.",
     }
 ];
 
@@ -103,6 +103,7 @@ const question = document.querySelector(".btn-container");
 // Question validation variables:
 let selectedAnswer = "";
 let selectedAnswerId = "";
+let correctAnswerId = "";
 
 //Score starts at 0
 let scorePts = 0;
@@ -126,6 +127,10 @@ function createAnswerButtons(answer, i) {
     answerButton.appendChild(answerSpan);
     question.appendChild(answerButton);
 
+    // Picking the correctAnswerId:
+    if (answer === correctAnswer) {
+        correctAnswerId = `answer${i + 1}`;
+    }
 };
 
 
@@ -153,28 +158,26 @@ function displayQuestion(index, callback) {
     answers.forEach((answer, i) => {
         callback(answer, i);
     });
-
 };
+
 // Function to handle questions swap :
 function nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId) {
 
     if (selectedAnswer === correctAnswer) {
         // change the color of the correct answer to green:
-        console.log("good");
-        document.getElementById(`${selectedAnswerId}`).style.setProperty("background-color", "green");
+        document.getElementById(`${selectedAnswerId}`).setAttribute("style", "box-shadow: 0px 0px 1.875rem 0.5rem var(--bottom-page-color) inset; background-color:var(--selectionBorderColor);");
     };
 
     if (selectedAnswer !== correctAnswer) {
         // change the color of the good answer to green:
         // change the color of the wrong answer to red:
-        console.log("bad");
-        document.getElementById(`${selectedAnswerId}`).style.setProperty("background-color", "red");
-        //document.target.textContent(`${correctAnswer}`).style.setProperty("background-color", "green");
+        document.getElementById(`${selectedAnswerId}`).setAttribute("style", "box-shadow: 0px 0px 1.3rem 0.3rem var(--bottom-page-color) inset; background-color:var(--button-color); color: var(--background-color);");
+        document.getElementById(`${correctAnswerId}`).setAttribute("style", "box-shadow: 0px 0px 1.875rem 0.5rem var(--bottom-page-color) inset; background-color:var(--selectionBorderColor);");
     };
 
     setTimeout(() => {
         const explications = document.querySelector(".explications");
-        explications.textContent = questions[currentQuestion-1].explication;
+        explications.textContent = questions[currentQuestion - 1].explication;
         explications.classList.toggle("explications");
 
         setTimeout(() => {
@@ -183,16 +186,13 @@ function nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId) {
                 // Cleaning question display before displaying next question:
                 question.textContent = '';
                 // display next question:
-                displayQuestion(currentQuestion, createAnswerButtons);
                 explications.classList.toggle("explications");
+                displayQuestion(currentQuestion, createAnswerButtons);
             };
-
-        }, "5000");
-    }, "1000"); 
-
+        }, "5000")
+    }, "800")
     // next question:
 };
-
 
 // ------------------  View   -----------------
 
@@ -203,12 +203,20 @@ const homepageName = document.querySelector(".name-selection");
 const homepageLogo = document.querySelector(".homepage-logo");
 
 
-
 validationButton.addEventListener("click", function () {
     const userNameSelector = document.querySelector("input");
     const userNameInGame = document.querySelector("#user-name");
     const trimmedUserName = userNameSelector.value.trim();
     const scoreCounter = document.querySelector("#score");
+
+    // Button Click animation:
+    setTimeout(() => {
+        validationButton.setAttribute("style", "transform: translateY(0px)");
+
+    }, "100");
+    validationButton.setAttribute("style", "transform: translateY(4px); box-shadow: 0px 0px 1.3rem 0.3rem var(--redShadowBorderColor) inset;");
+
+
 
     if (trimmedUserName.length === 0) {
         alert("Merci de saisir un nom pour commencer le quiz !");
@@ -241,19 +249,28 @@ validationButton.addEventListener("click", function () {
         nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId);
     }, "500");
 
-
-
     // récupérer la valeur du choix de l'utilisateur
     const btnContainer = document.querySelector(".btn-container");
 
+    // Make only one button active:
     btnContainer.addEventListener("click", function (event) {
+        // Remove active state from all buttons
+        const allButtons = btnContainer.querySelectorAll("button");
+        allButtons.forEach(button => {
+            button.style.setProperty("box-shadow", "none");
+            button.classList.remove('active');
+        });
+
+        // Answer selection and validation => get the answer values.
         selectedAnswer = event.target.textContent.slice(0, -1);
         selectedAnswerId = event.target.id;
-        event.target.style.setProperty("box-shadow", "5px 5px 5px green");
-        console.log(selectedAnswer, selectedAnswerId);
+        event.target.style.setProperty("box-shadow", ".4rem .4rem .4rem var(--bottom-page-color)");
+        //console.log(selectedAnswer, selectedAnswerId);
     });
 });
 
+
+//First question display
 displayQuestion(currentQuestion, createAnswerButtons);
 
 
