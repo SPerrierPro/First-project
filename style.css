@@ -9,6 +9,8 @@
     --purple-font-color: #5D44AD;
     --yellow-color: #FFEE5B;
     --bottom-page-color: #1F1149;
+    --selectionBorderColor: #00ff04;
+    --redShadowBorderColor: #710627;
     --toggleDisplay: none;
     --toggleHomePage: flex;
 
@@ -31,6 +33,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 
 
 /* BARRE DE NAVIGATION */
@@ -327,6 +330,7 @@ body article {
     gap: 10px;
     margin: 15px;
     padding: .3rem 1rem;
+
 }
 
 .game button {
@@ -412,6 +416,7 @@ body article {
     padding: 10px;
     text-align: center;
     border: none;
+    cursor: pointer;
 }
 
 /* À AFFICHER AFIN DE REVENIR A LA PAGE D'ACCUEIL*/
@@ -926,5 +931,6 @@ footer {
         font-size: .6rem;
         padding: .5rem;
     }
+
 }
 
