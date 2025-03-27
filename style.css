@@ -306,7 +306,7 @@ body article {
     display: var(--togglescorePage);
     margin: 150px 80px;
     text-align: center;
-  
+
 }
 
 
@@ -339,6 +339,7 @@ body article {
     gap: 10px;
     margin: 15px;
     padding: .3rem 1rem;
+    box-shadow: none;
 
 }
 
@@ -681,7 +682,7 @@ footer {
 
     .scorePage {
         margin-left: 260px;
-      
+
     }
 
 }
@@ -901,6 +902,7 @@ footer {
         font-size: 1.1rem;
 
     }
+
     .validation {
         margin-top: 2.2rem;
 
@@ -950,8 +952,7 @@ footer {
 
     .scorePage {
         margin-left: 600px;
-      
+
     }
 
 }
-
