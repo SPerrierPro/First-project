@@ -330,6 +330,7 @@ body article {
     gap: 10px;
     margin: 15px;
     padding: .3rem 1rem;
+    box-shadow: none;
 
 }
 
@@ -886,6 +887,7 @@ footer {
         font-size: 1.1rem;
 
     }
+
     .validation {
         margin-top: 2.2rem;
 
@@ -933,4 +935,3 @@ footer {
     }
 
 }
-
