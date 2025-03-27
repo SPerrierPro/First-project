@@ -192,6 +192,7 @@ function nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId) {
         }, "5000")
     }, "800")
 
+
     if (currentQuestion === totalQuestions) {
         setTimeout(() => {
             alert(`Quiz terminé ! Votre score final est de ${scorePts} points !`);
