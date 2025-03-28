@@ -234,7 +234,6 @@ validationButton.addEventListener("click", function () {
     // Button Click animation:
     setTimeout(() => {
         validationButton.setAttribute("style", "transform: translateY(0px)");
-
     }, "100");
     validationButton.setAttribute("style", "transform: translateY(4px); box-shadow: 0px 0px 1.3rem 0.3rem var(--redShadowBorderColor) inset;");
 
