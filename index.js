@@ -105,6 +105,8 @@ let correctAnswerId = "";
 //Score starts at 0
 let scorePts = 0;
 
+
+
 // ------------------  Functions   ------------------
 
 // Function to create question answers buttons:
@@ -163,6 +165,7 @@ function nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId) {
     if (selectedAnswer === correctAnswer) {
         // change the color of the correct answer to green:
         document.getElementById(`${selectedAnswerId}`).setAttribute("style", "box-shadow: 0px 0px 1.875rem 0.5rem var(--bottom-page-color) inset; background-color:var(--selectionBorderColor);");
+
     };
 
     if (selectedAnswer !== correctAnswer) {
@@ -171,24 +174,42 @@ function nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId) {
         document.getElementById(`${selectedAnswerId}`).setAttribute("style", "box-shadow: 0px 0px 1.3rem 0.3rem var(--bottom-page-color) inset; background-color:var(--button-color); color: var(--background-color);");
         document.getElementById(`${correctAnswerId}`).setAttribute("style", "box-shadow: 0px 0px 1.875rem 0.5rem var(--bottom-page-color) inset; background-color:var(--selectionBorderColor);");
     };
+    const btnContainer = document.querySelector(".btn-container");
+    const allButtons = btnContainer.querySelectorAll("button");
+    allButtons.forEach(button => {
+        button.disabled = true;
+        if (button.id !== selectedAnswerId && button.id !== correctAnswerId) {
+            button.style.opacity = "0.8";
+        };
+    });
+
 
     setTimeout(() => {
         const explications = document.querySelector(".explications");
+
         explications.textContent = questions[currentQuestion - 1].explication;
         explications.classList.toggle("explications");
+
 
         setTimeout(() => {
             if (currentQuestion < totalQuestions) {
                 currentQuestion += 1;
                 // Cleaning question display before displaying next question:
                 question.textContent = '';
+
                 // display next question:
                 explications.classList.toggle("explications");
                 displayQuestion(currentQuestion, createAnswerButtons);
             };
         }, "3600")
     }, "400")
-    // next question:
+
+    if (currentQuestion === totalQuestions) {
+        setTimeout(() => {
+            alert(`Quiz terminé ! Votre score final est de ${scorePts} points !`);
+            goHome();
+        }, 1000);
+    }
 };
 
 // ------------------  View   -----------------
@@ -214,7 +235,6 @@ validationButton.addEventListener("click", function () {
     validationButton.setAttribute("style", "transform: translateY(4px); box-shadow: 0px 0px 1.3rem 0.3rem var(--redShadowBorderColor) inset;");
 
 
-
     if (trimmedUserName.length === 0) {
         alert("Merci de saisir un nom pour commencer le quiz !");
         return
@@ -234,16 +254,26 @@ validationButton.addEventListener("click", function () {
         document.documentElement.style.setProperty("--toggleDisplay", "flex");
     }, "500");
 
-
+    //Score points incrementation:
     if (selectedAnswer === correctAnswer) {
         scorePts += 10;
-        scoreCounter.textContent = `Score : ${scorePts} points `;
     }
 
     userNameInGame.textContent = trimmedUserName;
     //  console.log(userNameSelector.value);
+
+    //Timeout sequence to display score, switch to next question and reset selected answer variables:
     setTimeout(() => {
+
+        scoreCounter.textContent = `Score : ${scorePts} points `;
         nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId);
+
+
+
+        // Resetting selected answer variables:
+        selectedAnswer = "";
+        selectedAnswerId = "";
+        correctAnswerId = "";
     }, "500");
 
     // récupérer la valeur du choix de l'utilisateur
@@ -251,20 +281,35 @@ validationButton.addEventListener("click", function () {
 
     // Make only one button active:
     btnContainer.addEventListener("click", function (event) {
-        // Remove active state from all buttons
-        const allButtons = btnContainer.querySelectorAll("button");
-        allButtons.forEach(button => {
-            button.style.setProperty("box-shadow", "none");
-            button.classList.remove('active');
-        });
 
-        // Answer selection and validation => get the answer values.
-        selectedAnswer = event.target.textContent.slice(0, -1);
-        selectedAnswerId = event.target.id;
-        event.target.style.setProperty("box-shadow", ".4rem .4rem .4rem var(--bottom-page-color)");
-        //console.log(selectedAnswer, selectedAnswerId);
+        // If condition avoid span and div .btn-container click behavior
+        if (event.target.tagName !== "SPAN" && event.target.tagName !== "DIV") {
+            // Remove active state from all buttons
+            const allButtons = btnContainer.querySelectorAll("button");
+            allButtons.forEach(button => {
+                button.style.setProperty("box-shadow", "none");
+                button.classList.remove('active');
+                //button.disabled = true;
+            });
+            // Answer selection and validation => get the answer values.
+            selectedAnswer = event.target.textContent.slice(0, -1);
+            selectedAnswerId = event.target.id;
+            event.target.style.setProperty("box-shadow", ".4rem .4rem .4rem var(--bottom-page-color)");
+            //console.log(selectedAnswer, selectedAnswerId);
+        }
     });
 });
-
 //First question display
 displayQuestion(currentQuestion, createAnswerButtons);
+//score page
+function goHome() {
+    const scorePage = document.querySelector(".scorePage");
+    const scoreDisplay = document.querySelector("#final-score");
+
+    homepageLogo.style.setProperty("--toggleHomePage", "flex");
+    scorePage.style.setProperty("--togglescorePage", "flex");
+    document.documentElement.style.setProperty("--toggleDisplay", "none");
+
+    scoreDisplay.textContent = `${scorePts}`;
+    console.log(`${scorePts}`);
+}
