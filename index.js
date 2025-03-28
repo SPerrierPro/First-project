@@ -206,11 +206,60 @@ function nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId) {
 
     if (currentQuestion === totalQuestions) {
         setTimeout(() => {
-            alert(`Quiz terminé ! Votre score final est de ${scorePts} points !`);
-            goHome();
-        }, 1000);
+            //alert(`Quiz terminé ! Votre score final est de ${scorePts} points !`);
+            resetQuiz();
+            displayQuestion(currentQuestion, createAnswerButtons);
+        }, "4000");
+        goHome();
     }
+
+
 };
+
+//score page
+function goHome() {
+    const scorePage = document.querySelector(".scorePage");
+    const scoreDisplay = document.querySelector("#final-score");
+    homepageLogo.style.setProperty("--toggleHomePage", "flex");
+    scorePage.style.setProperty("--togglescorePage", "flex");
+    document.documentElement.style.setProperty("--toggleDisplay", "none");
+    scoreDisplay.textContent = `${scorePts}`;
+    console.log(`${scorePts}`);
+}
+
+function resetQuiz() {
+    // Reset all quiz variables
+    currentQuestion = 0;
+    scorePts = 0;
+    selectedAnswer = "";
+    selectedAnswerId = "";
+    correctAnswerId = "";
+
+    // Clear the question container
+    question.textContent = '';
+
+    // Reset score display
+    const scoreCounter = document.querySelector("#score");
+    scoreCounter.textContent = `Score : ${scorePts} points`;
+
+    // Hide score page
+    const scorePage = document.querySelector(".scorePage");
+    scorePage.style.setProperty("--togglescorePage", "none");
+
+    // Show homepage elements
+    homepageLogo.style.setProperty("--toggleHomePage", "flex");
+    homepageName.style.setProperty("--toggleHomePage", "flex");
+
+    // Clear user input and name display
+    const userNameSelector = document.querySelector("input");
+    const userNameInGame = document.querySelector("#user-name");
+    userNameSelector.value = "";
+    userNameInGame.textContent = "";
+
+    // Hide quiz display
+    document.documentElement.style.setProperty("--toggleDisplay", "none");
+}
+
 // ------------------  View   -----------------
 
 // function récupérant le nom de l'utilisateur pour la page de jeu quand le bouton ok est cliqué
@@ -229,7 +278,6 @@ validationButton.addEventListener("click", function () {
     // Button Click animation:
     setTimeout(() => {
         validationButton.setAttribute("style", "transform: translateY(0px)");
-
     }, "100");
     validationButton.setAttribute("style", "transform: translateY(4px); box-shadow: 0px 0px 1.3rem 0.3rem var(--redShadowBorderColor) inset;");
 
@@ -293,22 +341,19 @@ validationButton.addEventListener("click", function () {
             // Answer selection and validation => get the answer values.
             selectedAnswer = event.target.textContent.slice(0, -1);
             selectedAnswerId = event.target.id;
+
+            //Shadow setting on selected answer button
             event.target.style.setProperty("box-shadow", ".4rem .4rem .4rem var(--bottom-page-color)");
             //console.log(selectedAnswer, selectedAnswerId);
         }
     });
 });
+
 //First question display
 displayQuestion(currentQuestion, createAnswerButtons);
-//score page
-function goHome() {
-    const scorePage = document.querySelector(".scorePage");
-    const scoreDisplay = document.querySelector("#final-score");
 
-    homepageLogo.style.setProperty("--toggleHomePage", "flex");
-    scorePage.style.setProperty("--togglescorePage", "flex");
-    document.documentElement.style.setProperty("--toggleDisplay", "none");
 
-    scoreDisplay.textContent = `${scorePts}`;
-    console.log(`${scorePts}`);
-}
+
+
+
+
