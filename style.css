@@ -1,5 +1,4 @@
 /* ---------------------    Global settings   ----------------------- */
-
 :root {
     --main-color: #5D44AD;
     --secondary-color: #3C2A74;
@@ -14,7 +13,6 @@
     --toggleDisplay: none;
     --toggleHomePage: flex;
     --togglescorePage: none;
-
 }
 
 @font-face {
@@ -35,10 +33,7 @@
     box-sizing: border-box;
 }
 
-
-
 /* BARRE DE NAVIGATION */
-
 nav {
     background-color: var(--main-color);
     height: 30px;
@@ -73,10 +68,7 @@ nav img {
     display: none;
 }
 
-
 /* MENU BURGER */
-
-
 .conteneur {
     display: flex;
     align-items: center;
@@ -93,10 +85,7 @@ nav img {
     position: relative;
 }
 
-
 /* BARRES HORIZONTALES DU MENU BURGER */
-
-
 .ham-menu span {
     height: 3px;
     width: 80%;
@@ -132,8 +121,6 @@ nav img {
 }
 
 /* MENU CACHÉ DU MENU BURGER (AFFICHÉ AVEC UN CLIC) */
-
-
 .off-screen-menu {
     z-index: 3;
     /* Avait été enlevé */
@@ -175,10 +162,7 @@ nav img {
     left: 0;
 }
 
-
 /* HEADER AVEC LES BULLES DE QUIZ */
-
-
 header {
     background-color: var(--secondary-color);
     color: var(--main-font-color);
@@ -245,7 +229,6 @@ header img:hover {
     transition: 0.5s;
 }
 
-
 body {
     background-color: var(--body-color);
 }
@@ -268,8 +251,6 @@ body article {
 }
 
 /* AFFICHAGE DU QUIZ */
-
-
 #question {
     display: var(--toggleDisplay);
     position: absolute;
@@ -314,7 +295,6 @@ body article {
     display: var(--toggleDisplay);
     flex-direction: column;
     align-items: center;
-
 }
 
 #qstn {
@@ -328,8 +308,6 @@ body article {
     background-color: white;
     border-radius: 15px;
     color: var(--main-color);
-
-
 }
 
 .btn-container {
@@ -340,7 +318,6 @@ body article {
     margin: 15px;
     padding: .3rem 1rem;
     box-shadow: none;
-
 }
 
 .game button {
@@ -375,6 +352,8 @@ body article {
     padding: 10px;
     margin: 10px;
     font-size: 0.7rem;
+    position: absolute;
+    top: 92%
 }
 
 .explications {
@@ -382,8 +361,6 @@ body article {
 }
 
 /* Début CSS pour la homepage*/
-/* Rajouter dans le * la line height de 1.5*/
-
 .homepage-logo {
     position: absolute;
     z-index: 2;
@@ -430,7 +407,6 @@ body article {
 }
 
 /* À AFFICHER AFIN DE REVENIR A LA PAGE D'ACCUEIL*/
-
 .homepage {
     display: var(--toggleHomePage);
 }
@@ -440,7 +416,6 @@ body article {
 }
 
 /* ---------------------    Footer   ----------------------- */
-
 footer {
     background-color: var(--secondary-color);
     color: var(--main-font-color);
@@ -535,7 +510,6 @@ footer {
     margin-left: 1rem;
     gap: .5rem;
     font-family: "inter";
-
 }
 
 .games ul a {
@@ -595,11 +569,12 @@ footer {
     }
 
     .homepage-logo {
-        top: 180px;
+        top: 140px;
     }
 
     .name-selection h2 {
         padding: 20px;
+        margin-top: 50px;
     }
 
     .name-selection input {
@@ -608,6 +583,7 @@ footer {
         border-radius: 10px;
         padding: 4px;
         border: none;
+        margin-top: 50px;
     }
 
     .validation {
@@ -630,7 +606,7 @@ footer {
 
     #quizimg {
         width: 350px;
-        height: 100px;
+        height: 170px;
         margin: 20px 160px 0px 130px;
         border-radius: 10px;
         outline: white solid 4px;
@@ -638,10 +614,10 @@ footer {
 
     #qstn {
         position: absolute;
-        width: fit-content;
-        bottom: 220px;
-        left: 30%;
-        right: 30%;
+        width: 70%;
+        bottom: 210px;
+        left: auto;
+        right: auto;
         font-size: 1.3rem;
         z-index: 2;
         padding: .6rem 1rem;
@@ -649,11 +625,10 @@ footer {
         background-color: white;
         border-radius: 15px;
         color: var(--main-color);
-
     }
 
     .btn-container {
-        margin-top: 15%;
+        margin-top: 110px;
         gap: 1rem;
     }
 
@@ -674,7 +649,8 @@ footer {
     }
 
     .game p {
-        margin-top: 7%;
+        position: absolute;
+        top: 93%;
         height: 2.5rem;
         font-size: 0.9rem;
 
@@ -684,7 +660,6 @@ footer {
         margin-left: 260px;
 
     }
-
 }
 
 @media screen and (min-width: 992px) {
@@ -851,7 +826,6 @@ footer {
         color: var(--yellow-color);
     }
 
-
     #quizimg {
         position: absolute;
         width: 220px;
@@ -866,12 +840,12 @@ footer {
         position: absolute;
         width: 550px;
         bottom: 260px;
-        left: 80px;
+        left: 20%;
         font-size: 1.4rem;
         z-index: 2;
         padding: .6rem 1rem;
         margin: 0;
-        background-color: white;
+        background-color: var(--main-font-color);
         border-radius: 15px;
         color: var(--main-color);
     }
@@ -900,12 +874,6 @@ footer {
     .game p {
         width: 70%;
         font-size: 1.1rem;
-
-    }
-
-    .validation {
-        margin-top: 2.2rem;
-
     }
 
     .validation {
@@ -948,11 +916,7 @@ footer {
         font-size: .6rem;
         padding: .5rem;
     }
-
-
     .scorePage {
         margin-left: 600px;
-
     }
-
 }
