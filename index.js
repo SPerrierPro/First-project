@@ -30,13 +30,13 @@ const questions = [
         image: "./assets/images/quizanimaux/marmotte.jpg",
         explication: "La femelle peut en avoir jusqu'à 7 d'un coup.",
     },
-    {
-        question: "Lequel de ces animaux n'est pas un mammifère ?",
-        answers: ["Le requin", "L'ornithorynque", "La chauve-souris", "Le koala"],
-        correctAnswer: "Le requin",
-        image: "./assets/images/quizanimaux/panda-roux.jpg",
-        explication: "L'ornithorynque est le seul mammifère à pondre des oeufs avec l'echidné. Oui, Sonic pond.",
-    },
+    //{
+    //    question: "Lequel de ces animaux n'est pas un mammifère ?",
+    //    answers: ["Le requin", "L'ornithorynque", "La chauve-souris", "Le koala"],
+    //    correctAnswer: "Le requin",
+    //    image: "./assets/images/quizanimaux/panda-roux.jpg",
+    //    explication: "L'ornithorynque est le seul mammifère à pondre des oeufs avec l'echidné. Oui, Sonic pond.",
+    //},
     {
         question: "Une reine d'Egypte s'est fait tuer par un hippopotame ?",
         answers: ["Vrai", "Faux"],
@@ -51,13 +51,12 @@ const questions = [
         image: "./assets/images/quizanimaux/lompe.jpg",
         explication: "Son nom de base est la lompe, mais c'est bien moins drôle.",
     },
-    {
-        question: "Quel fait sur la fourmi est faux ?",
-        answers: ["Elle peut porter plusieurs fois son poids", "Elle peut retenir sa respiration ", "Elle fait deux siestes par jour", "Elle ne brule pas"],
-        correctAnswer: "Elle ne brule pas",
-        image: "./assets/images/quizanimaux/fourmi.jpg",
-        explication: "Cet animal est malgré tout vraiment prêt à tout pour survivre.",
-    },
+    //{
+    //   answers: ["Elle peut porter plusieurs fois son poids", "Elle peut retenir sa respiration ", "Elle fait deux siestes par jour", "Elle ne brule pas"],
+    //    correctAnswer: "Elle ne brule pas",
+    //    image: "./assets/images/quizanimaux/fourmi.jpg",
+    //    explication: "Cet animal est malgré tout vraiment prêt à tout pour survivre.",
+    //},
     {
         question: "Quelle est la couleur du lait d'hippopotame ?",
         answers: ["Blanc", "Rose", "Bleuté", "Orange"],
@@ -187,7 +186,7 @@ function nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId) {
                 explications.classList.toggle("explications");
                 displayQuestion(currentQuestion, createAnswerButtons);
             };
-        }, "4200")
+        }, "3600")
     }, "400")
     // next question:
 };
