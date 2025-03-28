@@ -15,71 +15,73 @@ hamMenu.addEventListener("click", () => {
 
 // Object Question init:
 
-const questions = [
-    {
-        question: "Quel est cet animal ?",
-        answers: ["Un Diable de Tasmanie", "Un Pika", "Un Okapi", "Un Zébron"],
-        correctAnswer: "Un Okapi",
-        image: "./assets/images/quizanimaux/okapi.jpg",
-        explication: "C'est un Okapi, un animal qui ne vit qu'au Congo.",
-    },
-    {
-        question: "Quel est le nom du petit de la marmotte ?",
-        answers: ["Un Marmotton", "Un Marmotteau", "Un Marmottin", "Un Marmouttet"],
-        correctAnswer: "Un Marmotton",
-        image: "./assets/images/quizanimaux/marmotte.jpg",
-        explication: "La femelle peut en avoir jusqu'à 7 d'un coup.",
-    },
-    //{
-    //    question: "Lequel de ces animaux n'est pas un mammifère ?",
-    //    answers: ["Le requin", "L'ornithorynque", "La chauve-souris", "Le koala"],
-    //    correctAnswer: "Le requin",
-    //    image: "./assets/images/quizanimaux/panda-roux.jpg",
-    //    explication: "L'ornithorynque est le seul mammifère à pondre des oeufs avec l'echidné. Oui, Sonic pond.",
-    //},
-    {
-        question: "Une reine d'Egypte s'est fait tuer par un hippopotame ?",
-        answers: ["Vrai", "Faux"],
-        correctAnswer: "Vrai",
-        image: "./assets/images/quizanimaux/hippo.jpg",
-        explication: "Assez insolite pour rentrer dans l'histoire.",
-    },
-    {
-        question: "Quel est le nom ridicule de ce poisson ?",
-        answers: ["La grosse poule de mer", "La patate du Pacifique", "Le marin pelé", "La carpe rectale"],
-        correctAnswer: "La grosse poule de mer",
-        image: "./assets/images/quizanimaux/lompe.jpg",
-        explication: "Son nom de base est la lompe, mais c'est bien moins drôle.",
-    },
-    //{
-    //   answers: ["Elle peut porter plusieurs fois son poids", "Elle peut retenir sa respiration ", "Elle fait deux siestes par jour", "Elle ne brule pas"],
-    //    correctAnswer: "Elle ne brule pas",
-    //    image: "./assets/images/quizanimaux/fourmi.jpg",
-    //    explication: "Cet animal est malgré tout vraiment prêt à tout pour survivre.",
-    //},
-    {
-        question: "Quelle est la couleur du lait d'hippopotame ?",
-        answers: ["Blanc", "Rose", "Bleuté", "Orange"],
-        correctAnswer: "Blanc",
-        image: "./assets/images/quizanimaux/lait.jpg",
-        explication: "Un mythe veut qu'il soit rose, mais cela a depuis été réfuté.",
-    },
-    {
-        question: "La hyène est l'animal ayant la machoire la plus puissante ?",
-        answers: ["Vrai", "Faux"],
-        correctAnswer: "Vrai",
-        image: "./assets/images/quizanimaux/hyene.jpg",
-        explication: "Elle tient largement tête à un lion dans un combat.",
-    },
-    {
-        question: "Quel est cet animal trop mignon ?",
-        answers: ["Un Quokka", "Une Musaraigne", "Un Castor", "Un Chien de Prairie"],
-        correctAnswer: "Un Quokka",
-        image: "./assets/images/quizanimaux/quokka.jpg",
-        explication: "Pensez à regarder des images de quokka les jours de pluie.",
-    }
-];
+const questions =
+    [
+        {
+            question: "Quel est cet animal ?",
+            answers: ["Un Diable de Tasmanie", "Un Pika", "Un Okapi", "Un Zébron"],
+            correctAnswer: "Un Okapi",
+            image: "./assets/images/quizanimaux/okapi.jpg",
+            explication: "C'est un Okapi, un animal qui ne vit qu'au Congo.",
+        },
 
+        {
+            question: "Quel est le nom du petit de la marmotte ?",
+            answers: ["Un Marmotton", "Un Marmotteau", "Un Marmottin", "Un Marmouttet"],
+            correctAnswer: "Un Marmotton",
+            image: "./assets/images/quizanimaux/marmotte.jpg",
+            explication: "La femelle peut en avoir jusqu'à 7 d'un coup.",
+        },
+        //{
+        //    question: "Lequel de ces animaux n'est pas un mammifère ?",
+        //    answers: ["Le requin", "L'ornithorynque", "La chauve-souris", "Le koala"],
+        //    correctAnswer: "Le requin",
+        //    image: "./assets/images/quizanimaux/panda-roux.jpg",
+        //    explication: "L'ornithorynque est le seul mammifère à pondre des oeufs avec l'echidné. Oui, Sonic pond.",
+        //},
+        {
+            question: "Une reine d'Egypte s'est fait tuer par un hippopotame ?",
+            answers: ["Vrai", "Faux"],
+            correctAnswer: "Vrai",
+            image: "./assets/images/quizanimaux/hippo.jpg",
+            explication: "Assez insolite pour rentrer dans l'histoire.",
+        },
+        {
+            question: "Quel est le nom ridicule de ce poisson ?",
+            answers: ["La grosse poule de mer", "La patate du Pacifique", "Le marin pelé", "La carpe rectale"],
+            correctAnswer: "La grosse poule de mer",
+            image: "./assets/images/quizanimaux/lompe.jpg",
+            explication: "Son nom de base est la lompe, mais c'est bien moins drôle.",
+        },
+        //{
+        //   answers: ["Elle peut porter plusieurs fois son poids", "Elle peut retenir sa respiration ", "Elle fait deux siestes par jour", "Elle ne brule pas"],
+        //    correctAnswer: "Elle ne brule pas",
+        //    image: "./assets/images/quizanimaux/fourmi.jpg",
+        //    explication: "Cet animal est malgré tout vraiment prêt à tout pour survivre.",
+        //},
+        {
+            question: "Quelle est la couleur du lait d'hippopotame ?",
+            answers: ["Blanc", "Rose", "Bleuté", "Orange"],
+            correctAnswer: "Blanc",
+            image: "./assets/images/quizanimaux/lait.jpg",
+            explication: "Un mythe veut qu'il soit rose, mais cela a depuis été réfuté.",
+        },
+        {
+            question: "La hyène est l'animal ayant la machoire la plus puissante ?",
+            answers: ["Vrai", "Faux"],
+            correctAnswer: "Vrai",
+            image: "./assets/images/quizanimaux/hyene.jpg",
+            explication: "Elle tient largement tête à un lion dans un combat.",
+        },
+        {
+            question: "Quel est cet animal trop mignon ?",
+            answers: ["Un Quokka", "Une Musaraigne", "Un Castor", "Un Chien de Prairie"],
+            correctAnswer: "Un Quokka",
+            image: "./assets/images/quizanimaux/quokka.jpg",
+            explication: "Pensez à regarder des images de quokka les jours de pluie.",
+        }
+
+    ];
 
 
 // currentQuestion init: used to display the current question index => starts at 1 
@@ -208,11 +210,59 @@ function nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId) {
 
     if (currentQuestion === totalQuestions) {
         setTimeout(() => {
-            alert(`Quiz terminé ! Votre score final est de ${scorePts} points !`);
-            goHome();
-        }, 1000);
+            //alert(`Quiz terminé ! Votre score final est de ${scorePts} points !`);
+            resetQuiz();
+            displayQuestion(currentQuestion, createAnswerButtons);
+        }, "4000");
+        goHome();
     }
+
+
 };
+
+//score page
+function goHome() {
+    const scorePage = document.querySelector(".scorePage");
+    const scoreDisplay = document.querySelector("#final-score");
+    homepageLogo.style.setProperty("--toggleHomePage", "flex");
+    scorePage.style.setProperty("--togglescorePage", "flex");
+    document.documentElement.style.setProperty("--toggleDisplay", "none");
+    scoreDisplay.textContent = `${scorePts}`;
+    console.log(`${scorePts}`);
+}
+
+function resetQuiz() {
+    // Reset all quiz variables
+    currentQuestion = 0;
+    scorePts = 0;
+    selectedAnswer = "";
+    selectedAnswerId = "";
+    correctAnswerId = "";
+
+    // Clear the question container
+    question.textContent = '';
+
+    // Reset score display
+    const scoreCounter = document.querySelector("#score");
+    scoreCounter.textContent = `Score : ${scorePts} points`;
+
+    // Hide score page
+    const scorePage = document.querySelector(".scorePage");
+    scorePage.style.setProperty("--togglescorePage", "none");
+
+    // Show homepage elements
+    homepageLogo.style.setProperty("--toggleHomePage", "flex");
+    homepageName.style.setProperty("--toggleHomePage", "flex");
+
+    // Clear user input and name display
+    const userNameSelector = document.querySelector("input");
+    const userNameInGame = document.querySelector("#user-name");
+    userNameSelector.value = "";
+    userNameInGame.textContent = "";
+
+    // Hide quiz display
+    document.documentElement.style.setProperty("--toggleDisplay", "none");
+}
 
 // ------------------  View   -----------------
 
@@ -295,6 +345,8 @@ validationButton.addEventListener("click", function () {
             // Answer selection and validation => get the answer values.
             selectedAnswer = event.target.textContent.slice(0, -1);
             selectedAnswerId = event.target.id;
+
+            //Shadow setting on selected answer button
             event.target.style.setProperty("box-shadow", ".4rem .4rem .4rem var(--bottom-page-color)");
             //console.log(selectedAnswer, selectedAnswerId);
         }
@@ -304,17 +356,7 @@ validationButton.addEventListener("click", function () {
 //First question display
 displayQuestion(currentQuestion, createAnswerButtons);
 
-//score page
-function goHome() {
-    const scorePage = document.querySelector(".scorePage");
-    const scoreDisplay = document.querySelector("#final-score");
 
-    homepageLogo.style.setProperty("--toggleHomePage", "flex");
-    scorePage.style.setProperty("--togglescorePage", "flex");
-    document.documentElement.style.setProperty("--toggleDisplay", "none");
-    scoreDisplay.textContent = `${scorePts}`;
-    console.log(`${scorePts}`);
-}
 
 
 
