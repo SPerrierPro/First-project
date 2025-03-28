@@ -46,7 +46,7 @@ const questions = [
     },
     {
         question: "Quel est le nom ridicule de ce poisson ?",
-        answers: ["La grosse poule de mer", "La patate du Pacifique", "Le marin pelé", "La carpe rectale"],
+        answers: ["La carpe rectale", "La patate du Pacifique", "Le marin pelé", "La grosse poule de mer"],
         correctAnswer: "La grosse poule de mer",
         image: "./assets/images/quizanimaux/lompe.jpg",
         explication: "Son nom de base est la lompe, mais c'est bien moins drôle.",
@@ -59,7 +59,7 @@ const questions = [
     //},
     {
         question: "Quelle est la couleur du lait d'hippopotame ?",
-        answers: ["Blanc", "Rose", "Bleuté", "Orange"],
+        answers: ["Rose", "Blanc", "Bleuté", "Orange"],
         correctAnswer: "Blanc",
         image: "./assets/images/quizanimaux/lait.jpg",
         explication: "Un mythe veut qu'il soit rose, mais cela a depuis été réfuté.",
@@ -73,7 +73,7 @@ const questions = [
     },
     {
         question: "Quel est cet animal trop mignon ?",
-        answers: ["Un Quokka", "Une Musaraigne", "Un Castor", "Un Chien de Prairie"],
+        answers: ["Un Castor", "Une Musaraigne", "Un Quokka", "Un Chien de Prairie"],
         correctAnswer: "Un Quokka",
         image: "./assets/images/quizanimaux/quokka.jpg",
         explication: "Pensez à regarder des images de quokka les jours de pluie.",
@@ -211,7 +211,6 @@ function nextQuestion(selectedAnswer, correctAnswer, selectedAnswerId) {
         }, 1000);
     }
 };
-
 // ------------------  View   -----------------
 
 // function récupérant le nom de l'utilisateur pour la page de jeu quand le bouton ok est cliqué

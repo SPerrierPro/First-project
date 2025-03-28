@@ -287,7 +287,6 @@ body article {
     display: var(--togglescorePage);
     margin: 150px 80px;
     text-align: center;
-
 }
 
 
@@ -657,8 +656,9 @@ footer {
     }
 
     .scorePage {
-        margin-left: 260px;
-
+        margin-left: 33%;
+        margin-right: 32%;
+        margin-top: 30%;
     }
 }
 
@@ -753,7 +753,6 @@ footer {
         justify-content: space-evenly;
         gap: 60px;
     }
-
 
     .categ2 {
         display: flex;
@@ -917,6 +916,7 @@ footer {
         padding: .5rem;
     }
     .scorePage {
-        margin-left: 600px;
+        margin-left: 42%;
+        margin-right: 33%;
     }
 }
