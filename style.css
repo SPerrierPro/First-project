@@ -79,7 +79,6 @@ nav img {
 
 .ham-menu {
     z-index: 4;
-    /* Avait été enlevé*/
     height: 30px;
     width: 30px;
     position: relative;
@@ -123,7 +122,6 @@ nav img {
 /* MENU CACHÉ DU MENU BURGER (AFFICHÉ AVEC UN CLIC) */
 .off-screen-menu {
     z-index: 3;
-    /* Avait été enlevé */
     background-color: var(--main-font-color);
     height: 100%;
     width: 100%;
@@ -588,7 +586,7 @@ footer {
     .validation {
         width: 70vw;
         height: 2rem;
-        padding: 20px auto 30px auto;
+        padding: 20px 0 30px 0;
         box-shadow: 3px 5px 5px darkgrey;
         border: none;
         text-align: center;
@@ -801,7 +799,7 @@ footer {
         height: 2rem;
         margin: 1rem auto 3rem auto;
         border-radius: 10px;
-        padding: 20px auto 30px auto;
+        padding: 20px 0 30px 0;
         box-shadow: 3px 5px 5px darkgrey;
         border: none;
     }
@@ -810,7 +808,7 @@ footer {
         position: absolute;
         z-index: 2;
         padding: 10px 220px;
-        top: 16.9rem;
+        top: 18.9rem;
         background-color: white;
         border-radius: 15px;
         font-size: 18px;
